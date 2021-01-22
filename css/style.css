@@ -61,10 +61,13 @@ a {
 
 
 @media(max-width: 1024px) {
-
+    
+    body {
+        overflow: auto;
+    }
     .content-grid {
         display: grid;
-        grid-template-rows: repeat(3, 50vw);
+        grid-template-rows: repeat(3, 1fr);
         grid-template-columns: repeat(2, 1fr); 
     }
 
@@ -258,6 +261,7 @@ a {
     color: var(--coffee); 
     cursor: pointer;
     position: relative; 
+    overflow: hidden;
 }
 
 .skills .symbol {
@@ -287,6 +291,7 @@ a {
     color: var(--coffee); 
     cursor: pointer;
     position: relative; 
+    overflow: hidden;
 }
 
 .goals .symbol {
@@ -482,9 +487,167 @@ a {
     font-style: italic;  
 }
 
+/*******************************    Modal skills   *******************************/
+
+.skills-modal {
+
+    position: absolute;
+    right: 0; 
+    top: 0; 
+    width: 100vw; 
+    height: 100vh;  
+    grid-template-columns: 1fr 2fr; 
+    grid-template-rows: 1fr; 
+    transform-origin: 35% bottom;
+    transition: all .8s ease-in-out;
+    opacity: 0;
+
+
+}
+
+.content-modal-skills {
+    
+    width: 100%; 
+    height: 100vh;
+    background-color: var(--light-black); 
+    overflow: hidden;
+}
+
+.header-modal-skills .header-content-modal-skills {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header-content-modal-skills {
+    padding: 1rem;
+}
+
+.modal-name-skills h3 {
+    color: var(--coffee); 
+    font-weight: 300; 
+    font-size: 2.5rem; 
+    margin: .5rem .5rem; 
+    transform: translateX(-150%);
+    transition: all .2s ease-in-out;
+}
+
+.modal-close-skills {
+    cursor: pointer; 
+    background-color: transparent; 
+    border: none; 
+    transform: translateX(150%);
+    transition: all .2s ease-in-out;
+    outline: none; 
+}
+
+.body-modal-skills {
+
+    padding: 1rem; 
+    transform: translateX(-100%);
+    transition: all .3s ease-in-out; 
+}
+
+.body-modal-skills h4 {
+    color: var(--coffee); 
+    font-size: 2.5rem; 
+    margin:.5rem 0;
+}
+
+.body-modal-skills p {
+    color: var(--coffee); 
+    font-size: 1.2rem; 
+}
+
+.body-modal-skills h4, .body-modal-skills p {
+    padding: 0 1rem; 
+} 
+
+/*******************************    Modal goals   *******************************/
+
+.goals-modal {
+
+    position: absolute;
+    right: 0; 
+    top: 0; 
+    width: 100vw; 
+    height: 100vh;  
+    grid-template-columns: 1fr 2fr; 
+    grid-template-rows: 1fr; 
+    transform-origin: 100% bottom;
+    transition: all .8s ease-in-out;
+    opacity: 0;
+
+
+}
+
+.content-modal-goals {
+    
+    width: 100%; 
+    height: 100vh;
+    background-color: var(--black); 
+    overflow: hidden;
+}
+
+.header-modal-goals .header-content-modal-goals {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header-content-modal-goals {
+    padding: 1rem;
+}
+
+.modal-name-goals h3 {
+    color: var(--coffee); 
+    font-weight: 300; 
+    font-size: 2.5rem; 
+    margin: .5rem .5rem; 
+    transform: translateX(-150%);
+    transition: all .2s ease-in-out;
+}
+
+.modal-close-goals {
+    cursor: pointer; 
+    background-color: transparent; 
+    border: none; 
+    transform: translateX(150%);
+    transition: all .2s ease-in-out;
+    outline: none; 
+}
+
+.body-modal-goals {
+
+    padding: 1rem; 
+    transform: translateX(-100%);
+    transition: all .3s ease-in-out; 
+}
+
+.body-modal-goals h4 {
+    color: var(--coffee); 
+    font-size: 2.5rem; 
+    margin:.5rem 0;
+}
+
+.body-modal-goals ul li{
+    font-size: 1.15rem; 
+    color: var(--coffee); 
+
+}
+
+.body-modal-goals p {
+    color: var(--coffee); 
+    font-size: 1.2rem; 
+}
+
+.body-modal-goals h4, .body-modal-goals p {
+    padding: 0 1rem; 
+} 
+
 /*******************************    Modal Generic   *******************************/
 
-.generic-modal {
+/*.generic-modal {
 
     position: absolute;
     right: 0; 
@@ -494,11 +657,11 @@ a {
     grid-template-columns: 1fr 2fr; 
     grid-template-rows: 1fr; 
     transition: all .8s ease-in-out;
-    /*transform-origin: 35% top;*/
     opacity: 0;
-    /*overflow-x: hidden;*/
 
+ 
 }
+
 .modal-close-generic {
     cursor: pointer; 
     background-color: transparent; 
@@ -511,3 +674,56 @@ a {
 .modal-close-generic svg {
     fill: var(--coffee); 
 }
+
+.body-modal-generic {
+    color: var(--coffee); 
+    transform: translateX(-150%);
+    transition: all .3s ease-in-out; 
+}
+
+.body-modal-generic h4 {
+    font-size: 2.5rem; 
+    margin:.5rem 0;
+}
+
+.body-modal-generic p {
+    font-size: 1.2rem; 
+}
+
+.body-modal-generic h4, .body-modal-generic p {
+    padding: 0 1rem; 
+} 
+
+.content-modal-generic {
+    
+    width: 100%; 
+    height: 100vh;
+    overflow: hidden;
+}
+.modal-name-generic h3 {
+    font-weight: 300; 
+    font-size: 2.5rem; 
+    margin: .5rem .5rem; 
+    transform: translateX(-150%);
+    transition: all .2s ease-in-out;
+    color: var(--coffee); 
+}
+
+.header-modal-generic .header-content-modal-generic {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header-content-modal-generic {
+    padding: 1rem;
+}
+
+.close-generic {
+    cursor: pointer; 
+    background-color: transparent; 
+    border: none; 
+    transform: translateX(150%);
+    transition: all .2s ease-in-out;
+    outline: none; 
+}*/
