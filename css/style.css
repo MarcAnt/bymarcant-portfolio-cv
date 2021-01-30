@@ -1,19 +1,23 @@
+/************************  Estilos generales  ****************************/
 :root {
     --black: #303030;
     --light-black: #464646;
     --coffee: #FFF8E7;
     --coffee-dark: rgba(229,223,207, .3);
+    --coffee-dark-two: rgb(229,223,207);
     --blue: #3EA6FF;
     --dark-black: #181818;
     --font-raleway: 'Raleway'; 
+
+    --colorSectionletterContact: rgba(70,70,70, .3); 
+    --colorSectionletterBlack: rgba(176,176,176, .3); 
 }
 
-/*******************************    Generales    *******************************/
-
 html {
-    font-family: 'Raleway', sans-serif;
+  
     font-size: 16px; 
-    color: var(--black); 
+    color: var(--black);
+    font-family: 'Raleway', sans-serif;
 }
 
 body {
@@ -21,13 +25,8 @@ body {
     padding: 0;
     box-sizing: border-box;
     background-color: var(--coffee); 
-    overflow: hidden;
-}
-
-
-main {
-    
-    height: 100vh; 
+    font-family: var(--font-family);
+    position: relative; 
 }
 
 a {
@@ -37,476 +36,410 @@ a {
     font-weight: 400;
 }
 
-.content-grid {
+
+.grid-content{
+
     display: grid;
-    grid-template-rows: repeat(2, 50vh);
-    grid-template-columns: repeat(3, 1fr); 
-}
-
-
-
-.sup, .sub {
-    transition: all .4s ease-in-out;
-}
-
-.symbol .sub{
-    padding-top: 5rem;
-}
-
-.name, .description{
-    transition: all .4s ease-in-out;
-}
-
-
-
-
-@media(max-width: 1024px) {
+    grid-template-columns: repeat(3, 1fr);
     
-    body {
-        overflow: auto;
-    }
-    .content-grid {
-        display: grid;
-        grid-template-rows: repeat(3, 1fr);
-        grid-template-columns: repeat(2, 1fr); 
-    }
-
 }
 
-@media(max-width: 768px) {
-
-    .content-grid {
-        height: 100vh;     
-        display: grid;
-        grid-template-rows: repeat(6, 50vw);
-        grid-template-columns: 1fr; 
-
-    }
+.grid-item {
+    width: 100%;
+    height: 50vh;
 
 }
-
-
-
-
-/*******************************    Info    *******************************/
 
 .info {
-    padding: 1rem; 
+    background-color: var(--coffee);
+    transition: all .7s ease-in-out;
+  
 }
 
 .info a svg {
     fill: var(--black); 
 }
 
+.info a:nth-of-type(2) {
+
+    padding: .5rem; 
+
+}
+
 .info h2 {
     font-weight: 300; 
+    padding: 1rem; 
 }
+
+.info h1 {
+    margin: 0; 
+    padding: 1rem; 
+}
+
 
 .logo {
     display: block;
-    padding-bottom: 1rem; 
+    padding: 1rem; 
 }
 
-
-/*******************************    Portfolio    *******************************/
 
 .portfolio {
-    width: 100%; 
-    height: 100%; 
-    background-color: white; 
+
+    transition: all .3s ease-in-out;
+    background-color: white;
+    position: relative;
+    overflow: hidden;
     cursor: pointer;
-    position: relative; 
-    overflow: hidden; 
 }
 
-.name h3 {
-    font-weight: 300; 
-    font-size: 2.5rem; 
-    margin: .5rem .5rem; 
-    transition: all .2s ease-in-out;
-
-}
-
-
-.description h4 {
-    font-weight: 300; 
-    font-size: 1.5rem; 
-    margin: .5rem .5rem; 
-}
-
-
-.portfolio .symbol span{
-    position: absolute;
-     
-    left: 40%; 
-    top: 30%; 
-}
-
-.portfolio .description {
-    position: absolute;
-    right: 0; 
-    bottom: 0; 
-}
-
-.description h4 {
-    transition: all .2s ease-in-out;
-
-}
-
-
-.symbol {
-    display: flex; 
-    justify-content: center;
-    align-items: center;
-}
-
-.symbol p{
-    margin: 0; 
-    padding: 0;
-    text-align: center;
-    font-size: 6em; 
-    font-style: italic;
-}
-
-/*Modal para el portafolio*/
-
-.info-portfolio {
-   padding: 1rem;
-   
-}
-
-.img-portfolio {
-   
-   height: 200px; 
-   overflow: hidden; 
-}
-
-.img-portfolio img{
-   
-    width: 100%; 
-}
-
-.proyect-name {
-    color: var(--blue);
-}
-
-
-
-
-
-@media(max-width: 768px) {
-
-    .portfolio {
-        height: 25vh; 
-    }
-
-}
-
-
-/*******************************    Contact    *******************************/
-
-.contact {
-    width: 100%; 
-    height: 100%; 
-    background-color: var(--coffee); 
-    cursor: pointer;
-    position: relative; 
-    overflow: hidden; 
-}
-
-.contact .symbol {
-    position: absolute;
-    width: 100%;
-    height: 100%; 
-    left: 0; 
-    top: 0; 
-}
-
-@media(max-width: 768px) {
-
-    .contact {
-        height: 25vh; 
-    }
-
-}
-
-/*******************************    Photo    *******************************/
 
 .photo {
-   
-    background-color: inherit; 
-    background-image: url(../img/me.jpg);
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: 100% 100%;
+    background-color: var(--dark-black);
+    transition: all .7s ease-in-out;
+    width: 100%; 
+    /*height: 100%;*/
 }
 
-@media(max-width: 768px) {
-    .photo {
-        display: none; 
-    }
-    /*photo {
-        order: 2; 
-    }*/
-
+.photo img {
+    width: 100%; 
+    height: 100%; 
+    object-fit: cover;
 }
 
-/*******************************    skills    *******************************/
+.contact {
 
+    background-color: var(--coffee-dark-two);
+    position: relative;
+    cursor: pointer;
+    overflow: hidden;
+    transition: all .3s ease-in-out;
+}
 
 .skills {
-    background-color: var(--light-black); 
-    width: 100%; 
-    height: 100%; 
-    color: var(--coffee); 
+    background-color: var(--light-black);
     cursor: pointer;
-    position: relative; 
+    position: relative;
     overflow: hidden;
+    transition: all .3s ease-in-out;
 }
-
-.skills .symbol {
-    position: absolute;
-    width: 100%;
-    height: 100%; 
-    left: 0; 
-    top: 0; 
-}
-
-
-@media(max-width: 768px) {
-
-    .skills {
-        height: 25vh; 
-    }
-
-}
-
-/*******************************    Goals    *******************************/
 
 .goals {
-    
-    background-color: var(--black); 
-    width: 100%; 
-    height: 100%; 
-    color: var(--coffee); 
+    background-color: var(--black);
     cursor: pointer;
-    position: relative; 
     overflow: hidden;
+    transition: all .3s ease-in-out;
 }
 
-.goals .symbol {
-    position: absolute;
-    width: 100%;
-    height: 100%; 
-    left: 0; 
-    top: 0; 
+/************************  Estilos de las secciones  ****************************/
+
+.skills .section-name h2, .skills .section-letters p, .goals .section-letters p, .goals .section-name h2 {
+    color: var(--coffee);
 }
 
-@media(max-width: 768px) {
-
-    .goals {
-        height: 25vh; 
-    }
-
-}
-
-
-/*******************************    Modal Portfolio   *******************************/
-.modal {
-
-    position: absolute;
-    right: 0; 
-    top: 0; 
-    width: 100vw; 
-    height: 100vh;  
-    grid-template-columns: 1fr 2fr; 
-    grid-template-rows: 1fr; 
-    transition: all .8s ease-in-out;
-    transform-origin: 35% top;
-    opacity: 0;
-    overflow-x: hidden;
-
-}
-
-.content-modal {
-    
+.section-name {
     width: 100%; 
-    height: 100vh;
-    background-color: white; 
-    overflow-y: scroll;
-}
-
-.header-modal .header-content-modal {
+    height: 20%;
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
     align-items: center;
-}
-
-.header-content-modal {
-    padding: 1rem;
-}
-
-.modal-name h3 {
-    font-weight: 300; 
-    font-size: 2.5rem; 
-    margin: .5rem .5rem; 
-    transform: translateX(-150%);
-    transition: all .2s ease-in-out;
-}
-
-.close {
-    cursor: pointer; 
-    background-color: transparent; 
-    border: none; 
-    transform: translateX(150%);
-    transition: all .2s ease-in-out;
-    outline: none; 
-}
-.body-modal {
-    display: grid;
-    grid-template-rows: repeat(6, 25vw);
-    grid-template-columns: repeat(2, 1fr); 
-    padding: 1rem; 
-    transform: translateX(-100%);
     transition: all .3s ease-in-out; 
 }
 
-/*******************************    Modal Contact   *******************************/
-
-.contact-modal {
-
-    position: absolute;
-    right: 0; 
-    top: 0; 
-    width: 100vw; 
-    height: 100vh;  
-    transition: all .8s ease-in-out;
-    transform-origin: 0 bottom;
-    opacity: 0;
-   
-    grid-template-columns: 2fr 1fr; 
-    grid-template-rows: 1fr; 
-
-}
-
-.content-modal-contact {
-    
-    width: 100%; 
-    height: 100vh;
-    background-color: var(--coffee); 
-    overflow: hidden;
-}
-
-.modal-name-contact h3 {
+.section-name h2 {
     font-weight: 300; 
-    font-size: 2.5rem; 
-    margin: .5rem .5rem; 
-    transform: translateX(-150%);
-    transition: all .2s ease-in-out;
+    margin-left: 1rem; 
+    font-size: 2rem; 
+    transition: all .3s ease-in-out; 
+
 }
 
-.header-modal-contact .header-content-modal-contact {
+.section-letters {
+    width: 100%; 
+    height: 60%; 
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+    transition: all .3s ease-in-out; 
+}
+
+.section-letters p {
+    font-size: 6rem; 
+    font-style: italic;
+    transition: all .3s ease-in-out; 
+}
+
+.section-letters p:nth-child(2)  {
+    padding-top: 4rem; 
+}
+
+
+.section-info {
+    width: 100%; 
+    height: 20%; 
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    transition: all .3s ease-in-out; 
+}
+
+.section-info p {
+    text-align: right;
+    margin-right: 1rem; 
+    transition: all .3s ease-in-out; 
+}
+
+
+
+::-webkit-scrollbar {
+    width: 12px;
+}
+ 
+::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3); 
+    border-radius: 10px;
+}
+ 
+::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5); 
+}
+
+
+
+/************************  Estilos del modal Portafolio  ****************************/
+
+
+.modal-portfolio {
+    top: 0; 
+    left: 0; 
+    position: absolute;
+    display: grid;
+    grid-template-columns:  1fr 2fr;
+    transform-origin: 35% top; 
+    transform: scale(0);
+    transition: all .8s ease-in-out;
+    
+}
+
+.content-modal {
+    background-color: white;
+    overflow-y: hidden;
+    height: 100vh; 
+}
+
+.body-modal {
+    height: 100%; 
+    display: grid;
+    grid-template-columns:  repeat(2, 1fr);
+    grid-template-rows: repeat(6, 1fr);
+    grid-gap: 2rem 2rem;
+
+    transform: translateX(-100%);
+    transition: all .6s ease-in-out;
+}
+
+.header-modal {
+    overflow: hidden;
+    position: sticky;
+    top: 0;
+    left: 0;
+    background: white;
+    z-index: 100; 
+}
+
+.header-content-modal {
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
+.modal-name h3 {
+    font-size: 2rem; 
+    font-weight: 300; 
+    margin-left: 1rem; 
+    transform: translateX(-200%);
+    transition: all .6s ease-in-out;
+}
+
+.modal-close {
+    background-color: transparent;
+    border: 0; 
+    outline: 0; 
+    margin-right: 1rem; 
+    transform: translateX(200%);
+    transition: all .6s ease-in-out;
+}
+
+.img-portfolio {
+    width: 100%;
+    margin-left: 1rem;
+}
+
+.info-portfolio {
+    margin-right: 1rem; 
+}
+
+.info-portfolio a{
+    text-decoration: none;
+    color: var(--blue);  
+}
+
+
+.img-portfolio img{
+    width: 100%; 
+}
+
+.modal-close {
+    cursor: pointer; 
+    transition: all .3s ease-in-out;
+}
+
+.modal-close:hover {
+    transform: rotate(90deg);
+}
+
+
+/************************  Estilos del Modal Contacto  ****************************/
+
+.modal-contact {
+    width: 100%; 
+    top: 0; 
+    left: 0; 
+    position: absolute;
+    display: grid; 
+    grid-template-columns:  1fr 2fr;
+    transform-origin: right top; 
+    transform: scale(0);
+    transition: all .8s ease-in-out;
+    
+}
+
+.content-modal-contact {
+    background-color: var(--coffee-dark-two);
+    overflow: hidden;
+    height: 100vh; 
+}
+
+.header-modal-contact {
+    
+    background-color: var(--coffee-dark-two);
+    
+}
+
 .header-content-modal-contact {
-    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.modal-name-contact h3 {
+    font-size: 2rem; 
+    font-weight: 300; 
+    margin-left: 1rem; 
+    transform: translateX(-200%);
+    transition: all .6s ease-in-out;
 }
 
 .close-contact {
-    cursor: pointer; 
-    background-color: transparent; 
-    border: none; 
-    transform: translateX(150%);
-    transition: all .2s ease-in-out;
-    outline: none; 
+    cursor: pointer;
+    background-color: transparent;
+    border: 0; 
+    outline: 0; 
+    margin-right: 1rem; 
+    transform: translateX(200%);
+    transition: all .3s ease-in-out;
 }
 
 .body-modal-contact {
+
+    height: 80%; 
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    width: 80%;
-      
-    
-    margin: 0 auto; 
-    transform: translateX(-150%);
-    transition: all .3s ease-in-out; 
+    transform: translateX(-100%);
+    transition: all .6s ease-in-out;
+}
+
+.contact-form {
+    width: 100%; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }
 
 .body-modal-contact input {
-    width: 100%; 
-    padding: .8rem; 
+
+    width: 90%; 
+    background-color: transparent;
     border: none; 
-    border-bottom: 1px solid var(--black);
-    background-color: transparent;
     outline: none; 
-    font-family: var(--font-raleway), sans-serif; 
-    font-size: 1.2rem; 
-}
-
-.body-modal-contact textarea {
-    width: 100%;
-    height: 10rem;  
-    background-color: transparent;
-    border: 1px solid var(--black);
-    outline: 0; 
-    font-family: var(--font-raleway), sans-serif; 
-    margin-top: .5rem;
-    font-size: 1.2rem; 
-}
-
-.body-modal-contact button {
-    
-    border: 1px solid var(--black); 
-    background-color: transparent;
-    text-transform: uppercase;
-    padding: 1rem 1rem; 
+    border-bottom: 1px solid var(--black);
     font-size: 1.5rem; 
-    margin-top: 1rem;
-    cursor: pointer;
-    align-self: flex-start;
-     transition: all .2s ease-in-out;  
-
-}
-.body-modal-contact button:hover {
-    
-  background-color: var(--coffee-dark); 
+    font-family: var(--font-raleway); 
 
 }
 
 .body-modal-contact label {
-   
+
+    align-self: flex-start;
+    margin: 1.5rem 2rem;
     font-size: 2rem;
-    font-weight: 300;
-    margin-top: 1rem;
-    align-self: flex-start;  
-    font-style: italic;  
+
 }
 
-/*******************************    Modal skills   *******************************/
 
-.skills-modal {
+.body-modal-contact textarea {
+    height: 10rem; 
+    width: 90%; 
+    background-color: transparent;
+    border: none; 
+    outline: none; 
+    border-bottom: 1px solid var(--black);
+    font-size: 1rem; 
+    font-family: var(--font-raleway); 
 
+}
+
+.body-modal-contact button {
+
+    text-transform: uppercase;
+    background-color: transparent;
+    border: 1px solid var(--black); 
+    outline: none; 
+    font-size: 2rem; 
+    font-family: var(--font-raleway); 
+    cursor: pointer; 
+    padding: 1rem; 
+    margin: 2rem; 
+    align-self: flex-start;
+}
+
+
+
+
+
+
+/************************  Estilos del Modal Habilidades  ****************************/
+
+.modal-skills {
     position: absolute;
     right: 0; 
     top: 0; 
     width: 100vw; 
     height: 100vh;  
+    display: grid; 
     grid-template-columns: 1fr 2fr; 
     grid-template-rows: 1fr; 
     transform-origin: 35% bottom;
     transition: all .8s ease-in-out;
-    opacity: 0;
-
-
+    transform: scale(0);
 }
 
+
 .content-modal-skills {
-    
+
     width: 100%; 
     height: 100vh;
     background-color: var(--light-black); 
@@ -563,7 +496,10 @@ a {
     padding: 0 1rem; 
 } 
 
-/*******************************    Modal goals   *******************************/
+
+
+/************************  Estilos del Modal Metas  ****************************/
+
 
 .goals-modal {
 
@@ -572,12 +508,12 @@ a {
     top: 0; 
     width: 100vw; 
     height: 100vh;  
+    display: grid; 
     grid-template-columns: 1fr 2fr; 
     grid-template-rows: 1fr; 
     transform-origin: 100% bottom;
     transition: all .8s ease-in-out;
-    opacity: 0;
-
+    transform: scale(0);
 
 }
 
@@ -645,85 +581,247 @@ a {
     padding: 0 1rem; 
 } 
 
-/*******************************    Modal Generic   *******************************/
 
-/*.generic-modal {
 
-    position: absolute;
-    right: 0; 
-    top: 0; 
-    width: 100vw; 
-    height: 100vh;  
-    grid-template-columns: 1fr 2fr; 
-    grid-template-rows: 1fr; 
-    transition: all .8s ease-in-out;
-    opacity: 0;
+
+
+
+
+
+
+
+
+
+
+
+@media(min-width: 1025px) and (max-width: 2560px)  {
+    /************************   Generales  ****************************/
+
+    body {
+        overflow: hidden; 
+    }
+
+}
+
+
+
+@media(min-width: 769px) and (max-width: 1024px)  {
+
+    /************************   Generales  ****************************/
+    .grid-content{
+        grid-template-columns: repeat(2, 1fr);
+
+    }
+
+    /************************   Portafolio  ****************************/
+    .modal-portfolio {
+    
+        transform-origin: right top; 
+        grid-template-columns:  1fr;
+
+    }
+
+    /************************   Contact  ****************************/
+    .modal-contact {
+    
+        transform-origin: left bottom; 
+        grid-template-columns:  1fr;
+
+    }
+
+    /************************   Habilidades  ****************************/
+    
+    .modal-skills { 
+        top: auto;
+        right: auto;
+        bottom: 0; 
+        left: 0;
+        transform-origin: left bottom; 
+        grid-template-columns:  1fr;
+    }
+
+    /************************   Goals  ****************************/
+
+    .goals-modal { 
+        top: auto;
+        right: auto;
+        bottom: 0; 
+        left: 0;
+        transform-origin: right bottom; 
+        grid-template-columns:  1fr;
+    }
+
+}
+
+
+
+@media(max-width: 768px)  {
+
+    /************************   Generales  ****************************/
+    .grid-content{
+        grid-template-rows: repeat(5, 1fr);
+        grid-template-columns: 1fr;
+
+    }
+
+    .photo {
+        display: none;
+    }
+
+    /************************   Portafolio  ****************************/
+    .modal-portfolio {
+    
+        transform-origin: center center; 
+        grid-template-columns:  1fr;
+
+    }
+
+    /************************   Contact  ****************************/
+
+
+    .modal-contact {
+    
+        /*transform-origin: center center;*/
+        grid-template-columns:  1fr;
+
+    }
+
+    /************************   Habilidades  ****************************/
+    
+    .modal-skills { 
+        top: auto;
+        right: auto;
+        bottom: 0; 
+        left: 0;
+        transform-origin: center top; 
+        grid-template-columns:  1fr;
+    }
+
+    /************************   Metas  ****************************/
+    
+    .goals-modal { 
+        top: auto;
+        right: auto;
+        bottom: 0; 
+        left: 0;
+        transform-origin: center bottom; 
+        grid-template-columns:  1fr;
+    }
+
+
+    .content-modal-goals {
+
+        overflow-y: scroll; 
+
+    }
+
+
+}
+
+
+@media(max-width: 468px) {
+
+    /************************ Info  ****************************/
+
+    .info h2 {
+        font-size: 1.45rem; 
+    }
+
+    .info h1 { 
+        display: none; 
+     }
+
+    /************************ Modal Portafolio  ****************************/
+    .body-modal {
+        grid-template-rows: repeat(12, 1fr);
+        grid-template-columns: 1fr;
+    }
+
+    .img-portfolio {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-left: 0; 
+    }
+
+    .img-portfolio img {
+        width: 90%; 
+    }
+
+    .info-portfolio {
+        border-bottom: 1px solid var(--light-black); 
+        margin: 0 1.5rem;
+    }
+    /************************ Modal Contacto  ****************************/
+
+
+    .body-modal-contact label {
+        margin: 1.5rem 1rem;
+        font-size: 1rem;
+    }
+
+    .body-modal-contact button {
+        align-self: center;
+        width: 90%; 
+        font-size: 1rem; 
+    }
+
+    /************************ Modal Habilidades  ****************************/
+
+    .content-modal-skills {
+
+        overflow-y: scroll;
+
+    }
+
+    .header-modal-skills {
+        background-color: var(--light-black); 
+        position: sticky;
+        top: 0; 
+        left: 0; 
+        z-index: 100; 
+    }
+
+
+    .body-modal-skills h4{
+        font-size: 1.5rem; 
+
+    }
+
+    .body-modal-skills p {
+        line-height: 1.3; 
+        font-size: .85rem; 
+
+    }
+
+    /************************ Modal Goals  ****************************/
+    .content-modal-goals {
+
+        overflow-y: scroll; 
+
+    }
+
+    .header-modal-goals {
+        background-color: var(--black); 
+        position: sticky;
+        top: 0; 
+        left: 0; 
+        z-index: 100; 
+    }
+
+    .body-modal-goals ul li{
+        font-size: .75rem;
+        padding: .25rem 0; 
+
+    }
+
+    .body-modal-goals h4 {
+
+        font-size: 1.5rem; 
+
+    }
+
+
+}
 
  
-}
-
-.modal-close-generic {
-    cursor: pointer; 
-    background-color: transparent; 
-    border: none; 
-    transform: translateX(150%);
-    transition: all .2s ease-in-out;
-    outline: none; 
-}
-
-.modal-close-generic svg {
-    fill: var(--coffee); 
-}
-
-.body-modal-generic {
-    color: var(--coffee); 
-    transform: translateX(-150%);
-    transition: all .3s ease-in-out; 
-}
-
-.body-modal-generic h4 {
-    font-size: 2.5rem; 
-    margin:.5rem 0;
-}
-
-.body-modal-generic p {
-    font-size: 1.2rem; 
-}
-
-.body-modal-generic h4, .body-modal-generic p {
-    padding: 0 1rem; 
-} 
-
-.content-modal-generic {
-    
-    width: 100%; 
-    height: 100vh;
-    overflow: hidden;
-}
-.modal-name-generic h3 {
-    font-weight: 300; 
-    font-size: 2.5rem; 
-    margin: .5rem .5rem; 
-    transform: translateX(-150%);
-    transition: all .2s ease-in-out;
-    color: var(--coffee); 
-}
-
-.header-modal-generic .header-content-modal-generic {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.header-content-modal-generic {
-    padding: 1rem;
-}
-
-.close-generic {
-    cursor: pointer; 
-    background-color: transparent; 
-    border: none; 
-    transform: translateX(150%);
-    transition: all .2s ease-in-out;
-    outline: none; 
-}*/

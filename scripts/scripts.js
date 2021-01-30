@@ -5,491 +5,1138 @@ document.addEventListener('DOMContentLoaded', function() {
 		– Carl Sagan
 	*/
 
-	(function(d){
-	/*******************************    Variables    *******************************/
-	const portfolio = d.getElementById('portfolio'); 
-	const contact = d.getElementById('contact'); 
-	const skills = d.getElementById('skills'); 
-	const goals = d.getElementById('goals'); 
-	const closeModal = d.getElementById('modal-close');
-	const modal = d.getElementById('modal'); 
-	const nameModal = d.getElementById('modal-name'); 
-	const bodyModal = d.getElementById('body-modal'); 
+    /********************************************* Animacion del Portafolio *********************************************/
 
-	const contactModal = d.getElementById('contact-modal'); 
-	const closeContactModal = d.getElementById('modal-close-contact');
-	const bodyContactModal = d.getElementById('body-modal-contact'); 
-	const nameContactModal = d.getElementById('modal-name-contact'); 
+    const portfolio = document.getElementById('portfolio'); 
 
-	// const genericModal = d.getElementById('generic-modal'); 
-	// const closeGenericModal = d.getElementById('modal-close-generic');
-	// const bodyGenericModal = d.getElementById('body-modal-generic'); 
-	// const nameGenericModal = d.getElementById('modal-name-generic'); 
+    const portfolioModal = document.getElementById('modal-portfolio'); 
+    const closeModal = document.getElementById('modal-close'); 
+    const bodyModal = document.getElementById('body-modal'); 
+    const contentModal = document.getElementById('content-modal');
+    const modalName = document.getElementById('name-modal')
 
-	const skillsModal = d.getElementById('skills-modal'); 
-	const closeSkillsModal = d.getElementById('modal-close-skills');
-	const bodySkillsModal = d.getElementById('body-modal-skills'); 
-	const nameSkillsModal = d.getElementById('modal-name-skills');
+    closeModal.addEventListener('mouseover', function() { closeModal.style.transform = 'rotate(90deg)'}); 
+    closeModal.addEventListener('mouseleave', function() { closeModal.style.transform = 'rotate(0)'}); 
 
-	const goalsModal = d.getElementById('goals-modal'); 
-	const closeGoalsModal = d.getElementById('modal-close-goals');
-	const bodyGoalsModal = d.getElementById('body-modal-goals'); 
-	const nameGoalsModal = d.getElementById('modal-name-goals');  
+    function openPortfolioModal() {
 
-	// let contentSkills = null, contentGoals = null; 
 
+        portfolioModal.style.transform = 'scale(1)'; 
 
-	/*******************************    Functions    *******************************/
-	//Animar los textos en cada sección
-	function animateEleTitles(el, firstChild, lastChild) {
+        setTimeout(function () {
 
-		if(lastChild > 0) {
+            contentModal.style.overflowY = 'scroll'; 
+            bodyModal.style.transform = 'translateX(0)'; 
 
-			el.addEventListener('mouseover', function(e){
-				el.children[firstChild].children[0].style.transform = 'translateX(20px)';
-				el.children[lastChild].children[0].style.transform = 'translateX(-20px)'; 
+        }, 600);
 
-				el.children[1].children[0].style.textShadow = '-10px -10px 5px var(--coffee-dark)'; 
-				el.children[1].children[1].style.textShadow = '10px 10px 5px var(--coffee-dark)'; 
-			}); 
+        setTimeout(function () {
 
-			el.addEventListener('mouseleave', function(e){
-				el.children[firstChild].children[0].style.transform = 'translateX(0px)'; 
-				el.children[lastChild].children[0].style.transform = 'translateX(0px)'; 
+            closeModal.style.transform = 'translateX(0)'; 
+            modalName.style.transform = 'translateX(0)'; 
+            
+        }, 800);
+    }
 
-				el.children[1].children[0].style.textShadow = 'none'; 
-				el.children[1].children[1].style.textShadow = 'none'; 
-			}); 
+         
+    function closePortfolioModal() {
 
-		}else {
+        bodyModal.style.transform = 'translateX(-100%)'; 
 
-			el.addEventListener('mouseover', function(e){
-				el.children[firstChild].children[0].style.transform = 'translateX(20px)';
+        setTimeout(function () {
 
-				el.children[1].children[0].style.textShadow = '-10px -10px 5px var(--coffee-dark)'; 
-				el.children[1].children[1].style.textShadow = '10px 10px 5px var(--coffee-dark)'; 
-				
-			}); 
+            closeModal.style.transform = 'translateX(200%)'; 
+            modalName.style.transform = 'translateX(-200%)'; 
+            
+        }, 600);
 
-			el.addEventListener('mouseleave', function(e){
+        setTimeout(function () {    
 
-				el.children[firstChild].children[0].style.transform = 'translateX(0px)'; 
+            contentModal.style.overflowY = 'hidden';
+            portfolioModal.style.transform = 'scale(0)'; 
 
-				el.children[1].children[0].style.textShadow = 'none'; 
-				el.children[1].children[1].style.textShadow = 'none';  
-				
-			}); 
+        }, 1000);
+    }
 
-		}
+    // Animar el portfolio desde 1025 hasta 2560
+    const mediaQueryModal = window.matchMedia('(min-width: 1025px) and (max-width: 2560px)')
+    function modalChange(e) {
+      
+      if (e.matches) {
+       
+        closeModal.addEventListener('click', closePortfolioModal); 
+        portfolio.addEventListener('click',  openPortfolioModal); 
 
-		
-	}
+      }else {
+        closeModal.removeEventListener('click', closePortfolioModal); 
+        portfolio.removeEventListener('click',  openPortfolioModal); 
+      }
 
+    }
 
-	/*******************************    Generales    *******************************/
-	// Manetener oculto el modal
-	modal.style.transform = 'scale(0)';
-	contactModal.style.transform = 'scale(0)';
-	skillsModal.style.transform = 'scale(0)';
-	goalsModal.style.transform = 'scale(0)';
-	// genericModal.style.transform = 'scale(0)';
+    mediaQueryModal.addListener(modalChange)
+    modalChange(mediaQueryModal)
 
-    // Manejar los efectos en el header del modal
-	closeModal.addEventListener('mouseover', function(){ closeModal.style.transform = 'rotate(90deg)'});
-	closeModal.addEventListener('mouseleave', function(){ closeModal.style.transform = 'rotate(0)'});  
 
-	closeContactModal.addEventListener('mouseover', function(){ closeContactModal.style.transform = 'rotate(90deg)'});
-	closeContactModal.addEventListener('mouseleave', function(){ closeContactModal.style.transform = 'rotate(0)'}); 
+    // Animar el portfolio desde 769 hasta 1024
 
-	closeSkillsModal.addEventListener('mouseover', function(){ closeSkillsModal.style.transform = 'rotate(90deg)'});
-	closeSkillsModal.addEventListener('mouseleave', function(){ closeSkillsModal.style.transform = 'rotate(0)'}); 
 
-	closeGoalsModal.addEventListener('mouseover', function(){ closeGoalsModal.style.transform = 'rotate(90deg)'});
-	closeGoalsModal.addEventListener('mouseleave', function(){ closeGoalsModal.style.transform = 'rotate(0)'}); 
+    function openPortfolioModalMid() {
 
-	// closeGenericModal.addEventListener('mouseover', function(){ closeGenericModal.style.transform = 'rotate(90deg)'});
-	// closeGenericModal.addEventListener('mouseleave', function(){ closeGenericModal.style.transform = 'rotate(0)'}); 
+        // window.scrollTo(0, 0); 
+        window.scroll({
+          top: 0, 
+          left: 0, 
+          behavior: 'smooth'
+        });
 
-	/*******************************    Portfolio    *******************************/
-	animateEleTitles(portfolio,0,2); 
+        document.body.style.overflow = 'hidden'; 
+        portfolioModal.style.transform = 'scale(1)'; 
 
-	portfolio.addEventListener('click', function(e){
+        setTimeout(function () {
 
-		setTimeout(function(){
-		
-			d.querySelector('.content-modal').style.overflowY = 'scroll';
-			
-		},900);
+            contentModal.style.overflowY = 'scroll'; 
+            bodyModal.style.transform = 'translateX(0)'; 
 
-		portfolio.children[0].style.transform = 'translateX(-50%)';
-		portfolio.children[2].style.transform = 'translateX(120%)'; 
+        }, 800);
 
-		portfolio.children[1].children[0].style.transform = 'translateY(-200%)'
-		portfolio.children[1].children[1].style.transform = 'translateY(200%)'
+        setTimeout(function () {
 
+            closeModal.style.transform = 'translateX(0)'; 
+            modalName.style.transform = 'translateX(0)'; 
+            
+        }, 600);
+    }
 
-		setTimeout(function(){
+         
+    function closePortfolioModalMid() {
 
-			modal.style.display = 'grid';
-			modal.style.opacity = '1'; 
-			modal.style.transform = 'scale(1)'; 
+    
+        bodyModal.style.transform = 'translateX(-100%)'; 
 
-			setTimeout(function(){
+        setTimeout(function () {
 
-				bodyModal.style.transform = 'translateX(0)';
-				nameModal.style.transform ='translateX(0)';
-				closeModal.style.transform ='translateX(0)';
+            closeModal.style.transform = 'translateX(200%)'; 
+            modalName.style.transform = 'translateX(-200%)'; 
+            
+        }, 600);
 
-				 
-			},1000);
+        setTimeout(function () {    
 
-		},250);
+            contentModal.style.overflowY = 'hidden';
+            portfolioModal.style.transform = 'scale(0)'; 
 
-	
+            document.body.style.overflow = 'auto'; 
 
-	}); 
+        }, 1000);
+    }
 
-	closeModal.addEventListener('click', function(e){
 
-	
+    
+    const mqPortfolioModalMid = window.matchMedia('(min-width: 769px) and (max-width: 1024px)')
+    function mcPortfolioModalMid(e) {
+      
+      if (e.matches) {
 
-		setTimeout(function(){
+        
+        closeModal.addEventListener('click', closePortfolioModalMid); 
+        portfolio.addEventListener('click',  openPortfolioModalMid); 
 
-			bodyModal.style.transform = 'translateX(-100%)';
-			nameModal.style.transform ='translateX(-120%)';
-			closeModal.style.transform ='translateX(150%)';
+      }else {
+        closeModal.removeEventListener('click', closePortfolioModalMid); 
+        portfolio.removeEventListener('click',  openPortfolioModalMid); 
+      }
 
-			
-		},500);
+    }
 
+    mqPortfolioModalMid.addListener(mcPortfolioModalMid)
+    mcPortfolioModalMid(mqPortfolioModalMid)
 
 
-		setTimeout(function(){
 
-			modal.style.overflowX = 'hidden'; 
-			d.querySelector('.content-modal').style.overflowY = 'hidden';
-			d.querySelector('.content-modal').style.overflowX = 'hidden';
-			
-		},700);
+    // Animar el portfolio hasta 768
 
-	
-		setTimeout(function(){
-				
-			modal.style.transform = 'scale(0)';
+    function openPortfolioModalMin() {
 
-		},1000);
+        document.body.style.overflow = 'hidden'; 
+        // window.scrollTo(0, 0); 
 
-		
+        window.scroll({
+          top: 0, 
+          left: 0, 
+          behavior: 'smooth'
+        });
 
-		setTimeout(function(){
-			portfolio.children[0].style.transform = 'translateX(0)';
-			portfolio.children[2].style.transform = 'translateX(0)';
+        // portfolio.scrollIntoView(); 
 
-			portfolio.children[1].children[0].style.transform = 'translateY(0)'
-			portfolio.children[1].children[1].style.transform = 'translateY(0)'
-		},1500);
-	
-	}); 
+        portfolioModal.style.transform = 'scale(1)'; 
 
+        setTimeout(function () {
 
-	/*******************************    Contact    *******************************/
-	animateEleTitles(contact,0,0); 
+            contentModal.style.overflowY = 'scroll'; 
+            bodyModal.style.transform = 'translateX(0)'; 
 
-	contact.addEventListener('click', function(e) {
+        }, 800);
 
-		contact.children[0].style.transform = 'translateX(-50%)';
-	
-		contact.children[1].children[0].style.transform = 'translateY(-200%)'
-		contact.children[1].children[1].style.transform = 'translateY(200%)'
-		
+        setTimeout(function () {
 
-		setTimeout(function(){
+            closeModal.style.transform = 'translateX(0)'; 
+            modalName.style.transform = 'translateX(0)'; 
+            
+        }, 600);
+    }
 
-			contactModal.style.display = 'grid';
-			contactModal.style.opacity = '1'; 
-			contactModal.style.transform = 'scale(1)'; 
+         
+    function closePortfolioModalMin() {
 
-			setTimeout(function(){
+    
+        bodyModal.style.transform = 'translateX(-100%)'; 
 
-				bodyContactModal.style.transform = 'translateX(0)';
-				nameContactModal.style.transform ='translateX(0)';
-				closeContactModal.style.transform ='translateX(0)';
+        setTimeout(function () {
 
-				 
-			},1000);
+            closeModal.style.transform = 'translateX(200%)'; 
+            modalName.style.transform = 'translateX(-200%)'; 
+            
+        }, 600);
 
-		},250);
+        setTimeout(function () {    
 
-	}); 
+            contentModal.style.overflowY = 'hidden';
+            portfolioModal.style.transform = 'scale(0)'; 
 
-	closeContactModal.addEventListener('click', function() {
+            document.body.style.overflow = 'auto'; 
 
-		setTimeout(function(){
+        }, 1000);
+    }
 
-			bodyContactModal.style.transform = 'translateX(-150%)';
-			nameContactModal.style.transform ='translateX(-120%)';
-			closeContactModal.style.transform ='translateX(150%)';
 
-			
-		},500);
+    
+    const mqPortfolioModalMin = window.matchMedia('(max-width: 768px)')
+    function mcPortfolioModalMin(e) {
+      
+      if (e.matches) {
 
-		setTimeout(function(){
-				
-			contactModal.style.transform = 'scale(0)';
+        
+        closeModal.addEventListener('click', closePortfolioModalMin); 
+        portfolio.addEventListener('click',  openPortfolioModalMin); 
 
-		},1000);
+      }else {
+        closeModal.removeEventListener('click', closePortfolioModalMin); 
+        portfolio.removeEventListener('click',  openPortfolioModalMin); 
+      }
 
-		setTimeout(function(){
-			contact.children[0].style.transform = 'translateX(0)';
-			// contact.children[2].style.transform = 'translateX(0)';
+    }
 
-			contact.children[1].children[0].style.transform = 'translateY(0)'
-			contact.children[1].children[1].style.transform = 'translateY(0)'
-		},1500);
-	
-	}); 
+    mqPortfolioModalMin.addListener(mcPortfolioModalMin)
+    mcPortfolioModalMin(mqPortfolioModalMin)
 
 
-	/*******************************    Modal Generic (skills and goals)    *******************************/
 
-	// function openModalGeneric(x,y,color,content,sectionType, sectionName) {
 
-			
-	// 	genericModal.style.transformOrigin = `${x}% ${y}`;
 
-	// 	nameGenericModal.textContent = sectionName; 
-	// 	d.querySelector('.content-modal-generic').style.backgroundColor = `var(${color})`;
-		
-	// 	sectionType.children[0].style.transform = 'translateX(-100%)';
-	
-	// 	sectionType.children[1].children[0].style.transform = 'translateY(-200%)'; 
-	// 	sectionType.children[1].children[1].style.transform = 'translateY(200%)'; 
 
-	// 	bodyGenericModal.innerHTML = `${content}`; 
+    /****************** Animacion de las secciones *****************/
 
-	// 	setTimeout(function(){
+    function animateEleTitles(el, firstChild, lastChild, colorSombra, closeModal) {
 
-	// 		genericModal.style.display = 'grid';
-	// 		genericModal.style.opacity = '1'; 
-	// 		genericModal.style.transform = 'scale(1)'; 
+        if(lastChild > 0) {
+            //La seccion tiene más de tres partes (solo portafolio cumple esto)
+            el.addEventListener('mouseover', function(e){
+                el.children[firstChild].children[0].style.transform = 'translateX(20px)';
+                el.children[lastChild].children[0].style.transform = 'translateX(-20px)'; 
 
-	// 		setTimeout(function(){
+                el.children[1].children[0].style.textShadow = `-10px -10px 5px var(${colorSombra})`; 
+                el.children[1].children[1].style.textShadow = `10px 10px 5px var(${colorSombra})`; 
+            }); 
 
-	// 			bodyGenericModal.style.transform = 'translateX(0)';
-	// 			nameGenericModal.style.transform ='translateX(0)';
-	// 			closeGenericModal.style.transform ='translateX(0)';
+            el.addEventListener('mouseleave', function(e){
+                el.children[firstChild].children[0].style.transform = 'translateX(0px)'; 
+                el.children[lastChild].children[0].style.transform = 'translateX(0px)'; 
 
-				 
-	// 		},1000);
+                el.children[1].children[0].style.textShadow = 'none'; 
+                el.children[1].children[1].style.textShadow = 'none'; 
+            }); 
 
-	// 	},250);
-	// 	x = 0; 
-	// }
+            //Animacion de las letras centrales al cerrar
 
-	// function closeModalGeneric(sectionType,x,y) {
-		
-	// 	setTimeout(function(){
+            el.addEventListener('click', function() {
 
-	// 		bodyGenericModal.style.transform = 'translateX(-150%)';
-	// 		nameGenericModal.style.transform ='translateX(-120%)';
-	// 		closeGenericModal.style.transform ='translateX(150%)';
+                setTimeout(function() {
+                    el.children[firstChild].style.transform = 'translate(-200%)'; 
+                    el.children[lastChild].style.transform = 'translate(200%)';
 
+                    el.children[1].children[0].style.transform = `translate(-2000%)`; 
+                    el.children[1].children[1].style.transform = `translate(2000%)`;
 
-			
-	// 	},500);
+                }, 50);
 
-	// 	setTimeout(function(){
-				
-	// 		genericModal.style.transform = 'scale(0)';
+            
+            });
 
-	// 	},1000);
 
+        }else {
 
-	// 	setTimeout(function(){
-	// 		sectionType.children[0].style.transform = 'translateX(0)';
-	// 		// sectionType.children[2].style.transform = 'translateX(0)';
 
-	// 		sectionType.children[1].children[0].style.transform = 'translateY(0)'
-	// 		sectionType.children[1].children[1].style.transform = 'translateY(0)'
+            el.addEventListener('mouseover', function(e){
 
+                el.children[firstChild].children[0].style.transform = 'translateX(20px)';
 
-	// 	},1500);
+                el.children[1].children[0].style.textShadow = `-10px -10px 5px var(${colorSombra})`; 
+                el.children[1].children[1].style.textShadow = `10px 10px 5px var(${colorSombra})`; 
+                
+            }); 
 
-	// }
+            el.addEventListener('mouseleave', function(e){
 
+                el.children[firstChild].children[0].style.transform = 'translateX(0px)'; 
 
-	
+                el.children[1].children[0].style.textShadow = 'none'; 
+                el.children[1].children[1].style.textShadow = 'none';  
+                
+            }); 
 
-	/*******************************    Skills    *******************************/
-	animateEleTitles(skills,0,0); 
+            //Animacion de las letras centrales al abrir
 
-	skills.addEventListener('click', function(e) {
+            el.addEventListener('click', function() {
 
-		skills.children[0].style.transform = 'translateX(-200%)';
-	
-		skills.children[1].children[0].style.transform = 'translateY(-200%)'
-		skills.children[1].children[1].style.transform = 'translateY(200%)'
-		
+                setTimeout(function() {
+                    el.children[firstChild].style.transform = 'translate(-200%)'; 
+                    // el.children[lastChild].style.transform = 'translate(200%)';
 
-		setTimeout(function(){
+                    el.children[1].children[0].style.transform = `translate(-2000%)`; 
+                    el.children[1].children[1].style.transform = `translate(2000%)`;
 
-			skillsModal.style.display = 'grid';
-			skillsModal.style.opacity = '1'; 
-			skillsModal.style.transform = 'scale(1)'; 
+                }, 50);
 
-			setTimeout(function(){
+            
+            });
 
-				bodySkillsModal.style.transform = 'translateX(0)';
-				nameSkillsModal.style.transform ='translateX(0)';
-				closeSkillsModal.style.transform ='translateX(0)';
+        }
 
-				 
-			},1000);
+        //Animacion de las letras centrales al cerrar
 
-		},250);
+        closeModal.addEventListener('click', function() {
 
-	}); 
+            setTimeout(function(){
 
-	closeSkillsModal.addEventListener('click', function() {
+                el.children[firstChild].style.transform = 'translate(0)'; 
+                el.children[lastChild].style.transform = 'translate(0)';
 
-		setTimeout(function(){
+            }, 1500);
 
-			bodySkillsModal.style.transform = 'translateX(-150%)';
-			nameSkillsModal.style.transform ='translateX(-120%)';
-			closeSkillsModal.style.transform ='translateX(150%)';
+            setTimeout(function(){
 
-			
-		},500);
+                el.children[1].children[0].style.transform = `translate(0)`; 
+                el.children[1].children[1].style.transform = `translate(0)`;
+                
+            }, 1350);
 
-		setTimeout(function(){
-				
-			skillsModal.style.transform = 'scale(0)';
+    
+        }); 
 
-		},1000);
+            
+    }
 
-		setTimeout(function(){
-			skills.children[0].style.transform = 'translateX(0)';
-			// skills.children[2].style.transform = 'translateX(0)';
+    animateEleTitles(portfolio,0,2, '--coffee-dark', closeModal); 
 
-			skills.children[1].children[0].style.transform = 'translateY(0)'
-			skills.children[1].children[1].style.transform = 'translateY(0)'
-		},1500);
-	
-	}); 
 
-	// skills.addEventListener('click', function() {
 
-	// 	contentSkills = `
-	// 	<h4>Frontend: </h4>
-	// 	<p>Manejo de la sintaxis básica de <i>HTML, basic SEO, API'S </i> y plantillas de <i>HTML 5</i></p>
-	// 	<p>Vanilla Javascript, sintaxis básica, manejo del DOM, POO, asíncrono y plugins como <i>GSAP, anime.js, chart.js</i>, 
-	// 	 entre otros según el tipo o necesidades de proyecto.</p>
-	// 	<p>CSS, uso de variables y sintaxis básica para todos los navegadores, responsive web desing y librerias o frameworks
-	// 	como <i>Sass, Bootstrap y Tailwind CSS</i>. 
-	// 	</p>
-	// 	<p>Manejo de de herrmaientas como Adobe Illustrator, Adobo Photoshop y Figma</p>
 
-	// 	<h4>Backend: </h4>
-	// 	<p>Conocimiento de php en cuanto a creación de sitios sencillos y mysql. Manejo de plantillas Blade de Laravel</p>
-	// 	`; 
 
-	// 	openModalGeneric(35, 'bottom', '--light-black', contentSkills, skills, 'Habilidades');
 
-	// }); 
 
-	// closeGenericModal.addEventListener('click', function(){
-	// 	closeModalGeneric(skills,35,'bottom'); 
-	// }); 
 
-	
 
 
-	/*******************************    Goals    *******************************/
-	animateEleTitles(goals,0,0); 
 
-	goals.addEventListener('click', function(e) {
 
-		goals.children[0].style.transform = 'translateX(-200%)';
-	
-		goals.children[1].children[0].style.transform = 'translateY(-200%)'
-		goals.children[1].children[1].style.transform = 'translateY(200%)'
-		
 
-		setTimeout(function(){
 
-			goalsModal.style.display = 'grid';
-			goalsModal.style.opacity = '1'; 
-			goalsModal.style.transform = 'scale(1)'; 
 
-			setTimeout(function(){
 
-				bodyGoalsModal.style.transform = 'translateX(0)';
-				nameGoalsModal.style.transform ='translateX(0)';
-				closeGoalsModal.style.transform ='translateX(0)';
 
-				 
-			},1000);
 
-		},250);
+    /********************************************* Animacion de Contacto *********************************************/
 
-	}); 
 
-	closeGoalsModal.addEventListener('click', function() {
+    const contact = document.getElementById('contact'); 
 
-		setTimeout(function(){
+    const contactModal = document.getElementById('modal-contact'); 
+    const closeContactModal = document.getElementById('modal-close-contact'); 
+    const bodyContactModal = document.getElementById('body-modal-contact'); 
+    const contentContactModal = document.getElementById('content-modal-contact');
+    const modalContactName = document.getElementById('modal-name-contact'); 
 
-			bodyGoalsModal.style.transform = 'translateX(-150%)';
-			nameGoalsModal.style.transform ='translateX(-120%)';
-			closeGoalsModal.style.transform ='translateX(150%)';
+    closeContactModal.addEventListener('mouseover', function() { closeContactModal.style.transform = 'rotate(90deg)'}); 
+    closeContactModal.addEventListener('mouseleave', function() { closeContactModal.style.transform = 'rotate(0)'}); 
 
-			
-		},500);
+    animateEleTitles(contact, 0,0, '--colorSectionletterContact', closeContactModal); 
+    
+    // Animar el portfolio desde 1025 hasta 2560
 
-		setTimeout(function(){
-				
-			goalsModal.style.transform = 'scale(0)';
+    function openContactModal() {
 
-		},1000);
 
-		setTimeout(function(){
-			goals.children[0].style.transform = 'translateX(0)';
-			// goals.children[2].style.transform = 'translateX(0)';
+        contactModal.style.transform = 'scale(1)'; 
 
-			goals.children[1].children[0].style.transform = 'translateY(0)'
-			goals.children[1].children[1].style.transform = 'translateY(0)'
-		},1500);
-	
-	}); 
+        setTimeout(function () {
 
-	// goals.addEventListener('click', function() {
+            
+            bodyContactModal.style.transform = 'translateX(0)'; 
 
-	// 	contentGoals = `
-	// 	<h4>Frontend: </h4>
-	// 	<ul>
-	// 		<li>Incorporar mejoras en cuanto UX/UI a futuros proyectos.</li>
-	// 		<li>Estudiar sobre estruturas de datos y algoritmos.</li>
-	// 		<li>Aprender sobre programación reactiva con Javascript y realizar proyectos con React.</li>
-	// 	</ul>
+        }, 600);
 
-	// 	<h4>Backend: </h4>
-	// 	<p>Conocimiento de php en cuanto a creación de sitios sencillos y mysql. Manejo de plantillas Blade de Laravel</p>
-	// 	`; 
+        setTimeout(function () {
 
-	// 	openModalGeneric(100, 'bottom', '--black', contentGoals, goals, 'Metas');
+            closeContactModal.style.transform = 'translateX(0)'; 
+            modalContactName.style.transform = 'translateX(0)'; 
+            
+        }, 800);
+    }
 
-	// }); 
+         
+    function cContactModal() {
 
-	// closeGenericModal.addEventListener('click', function(){
-	// 	closeModalGeneric(goals, 100, 'bottom'); 
-	// });
+        bodyContactModal.style.transform = 'translateX(-100%)'; 
 
-	
+        setTimeout(function () {
 
-	})(document);
+            closeContactModal.style.transform = 'translateX(200%)'; 
+            modalContactName.style.transform = 'translateX(-200%)'; 
+            
+        }, 600);
 
+        setTimeout(function () {    
 
+            contentContactModal.style.overflowY = 'hidden';
+            contactModal.style.transform = 'scale(0)'; 
 
-})
+        }, 1000);
+    }
 
+    const mediaQueryModalContact = window.matchMedia('(min-width: 1025px) and (max-width: 2560px)')
 
+    function modalChangeContact(e) {
+      
+      if (e.matches) {
+       
+        closeContactModal.addEventListener('click', cContactModal); 
+        contact.addEventListener('click',  openContactModal); 
 
+      }else {
+        closeContactModal.removeEventListener('click', cContactModal); 
+        contact.removeEventListener('click',  openContactModal); 
+      }
+
+    }
+
+    mediaQueryModalContact.addListener(modalChangeContact)
+    modalChangeContact(mediaQueryModalContact)
+
+
+
+    // Animar el portfolio desde 769 hasta 1024
+
+
+    function openContactModalMid() {
+
+
+        // window.scrollTo(0, 0); 
+
+        window.scroll({
+          top: 0, 
+          left: 0, 
+          behavior: 'smooth'
+        });
+
+
+
+        document.body.style.overflow = 'hidden'; 
+        contactModal.style.transform = 'scale(1)'; 
+
+        setTimeout(function () {
+
+            // contentContactModal.style.overflowY = 'scroll'; 
+            bodyContactModal.style.transform = 'translateX(0)'; 
+
+        }, 800);
+
+        setTimeout(function () {
+
+            closeContactModal.style.transform = 'translateX(0)'; 
+            modalContactName.style.transform = 'translateX(0)'; 
+            
+        }, 600);
+    }
+
+         
+    function closeContactModalMid() {
+
+    
+        bodyModal.style.transform = 'translateX(-100%)'; 
+
+        setTimeout(function () {
+
+            closeContactModal.style.transform = 'translateX(200%)'; 
+            modalContactName.style.transform = 'translateX(-200%)'; 
+
+            bodyContactModal.style.transform = 'translateX(-200%)'; 
+            
+        }, 600);
+
+        setTimeout(function () {    
+
+            contentContactModal.style.overflowY = 'hidden';
+            contactModal.style.transform = 'scale(0)'; 
+
+            document.body.style.overflow = 'auto'; 
+
+        }, 1000);
+    }
+
+
+    
+    const mqContactModalMid = window.matchMedia('(min-width: 769px) and (max-width: 1024px)')
+    function mcContactModalMid(e) {
+      
+      if (e.matches) {
+
+        
+        closeContactModal.addEventListener('click', closeContactModalMid); 
+        contact.addEventListener('click',  openContactModalMid); 
+
+      }else {
+        closeContactModal.removeEventListener('click', closeContactModalMid); 
+        contact.removeEventListener('click',  openContactModalMid); 
+      }
+
+    }
+
+    mqContactModalMid.addListener(mcContactModalMid)
+    mcContactModalMid(mqContactModalMid)
+
+
+    // Animar el portfolio hasta 768
+
+
+    function openContactModalMin() {
+
+        document.body.style.overflow = 'hidden'; 
+
+        //mover el modal a la posicion actual en la pantalla        
+        let value = -1 * contactModal.getBoundingClientRect().y; 
+        contactModal.style.transform = `scale(1) translateY(${value}px)`; 
+
+        setTimeout(function () {
+
+            // contentContactModal.style.overflowY = 'scroll'; 
+            bodyContactModal.style.transform = 'translateX(0)'; 
+
+        }, 800);
+
+        setTimeout(function () {
+
+            closeContactModal.style.transform = 'translateX(0)'; 
+            modalContactName.style.transform = 'translateX(0)'; 
+            
+        }, 600);
+    }
+
+         
+    function closeContactModalMin() {
+
+        
+
+        bodyContactModal.style.transform = 'translateX(-100%)'; 
+
+        setTimeout(function () {
+
+            closeContactModal.style.transform = 'translateX(200%)'; 
+            modalContactName.style.transform = 'translateX(-200%)'; 
+            
+        }, 600);
+
+        setTimeout(function () {    
+
+    
+            contentContactModal.style.overflowY = 'hidden';
+            contactModal.style.transform = 'scale(0)'; 
+
+
+            document.body.style.overflow = 'auto'; 
+
+        }, 1000);
+
+
+    }
+
+
+    
+    const mqContactModalMin = window.matchMedia('(max-width: 768px)')
+    function mcContactModalMin(e) {
+      
+      if (e.matches) {
+
+        
+        closeContactModal.addEventListener('click', closeContactModalMin); 
+        contact.addEventListener('click',  openContactModalMin); 
+
+      }else {
+        closeContactModal.removeEventListener('click', closeContactModalMin); 
+        contact.removeEventListener('click',  openContactModalMin); 
+      }
+
+    }
+
+    mqContactModalMin.addListener(mcContactModalMin)
+    mcContactModalMin(mqContactModalMin)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    /********************************************* Animacion de Habilidades *********************************************/
+
+    const skills = document.getElementById('skills'); 
+
+    const skillsModal = document.getElementById('modal-skills'); 
+    const closeSkillsModal = document.getElementById('modal-close-skills'); 
+    const bodySkillsModal = document.getElementById('body-modal-skills'); 
+    const contentSkillsModal = document.getElementById('content-modal-skills');
+    const modalSkillsName = document.getElementById('modal-name-skills')
+
+    closeSkillsModal.addEventListener('mouseover', function() { closeSkillsModal.style.transform = 'rotate(90deg)'}); 
+    closeSkillsModal.addEventListener('mouseleave', function() { closeSkillsModal.style.transform = 'rotate(0)'}); 
+
+    animateEleTitles(skills, 0, 0, '--colorSectionletterBlack', closeSkillsModal); 
+
+
+    // Animar el portfolio desde 1025 hasta 2560
+
+    function openSkillsModal() {
+
+
+        skillsModal.style.transform = 'scale(1)'; 
+
+        setTimeout(function () {
+
+            
+            bodySkillsModal.style.transform = 'translateX(0)'; 
+
+        }, 600);
+
+        setTimeout(function () {
+
+            closeSkillsModal.style.transform = 'translateX(0)'; 
+            modalSkillsName.style.transform = 'translateX(0)'; 
+            
+        }, 800);
+    }
+
+         
+    function cSkillsModal() {
+
+        bodySkillsModal.style.transform = 'translateX(-100%)'; 
+
+        setTimeout(function () {
+
+            closeSkillsModal.style.transform = 'translateX(200%)'; 
+            modalSkillsName.style.transform = 'translateX(-200%)'; 
+            
+        }, 600);
+
+        setTimeout(function () {    
+
+            // contentSkillsModal.style.overflowY = 'hidden';
+            skillsModal.style.transform = 'scale(0)'; 
+
+        }, 1000);
+    }
+
+    const mediaQueryModalSkills = window.matchMedia('(min-width: 1025px) and (max-width: 2560px)')
+
+    function modalChangeSkills(e) {
+      
+      if (e.matches) {
+       
+        closeSkillsModal.addEventListener('click', cSkillsModal); 
+        skills.addEventListener('click',  openSkillsModal); 
+
+      }else {
+        closeSkillsModal.removeEventListener('click', cSkillsModal); 
+        skills.removeEventListener('click',  openSkillsModal); 
+      }
+
+    }
+
+    mediaQueryModalSkills.addListener(modalChangeSkills)
+    modalChangeSkills(mediaQueryModalSkills)
+
+
+
+    // Animar el portfolio desde 769 hasta 1024
+
+
+    function openSkillsModalMid() {
+
+
+        window.scrollTo({
+          top: window.screen.height, 
+          left: 0, 
+          behavior: 'smooth'
+        });
+
+        skills.scrollIntoView();
+
+        document.body.style.overflow = 'hidden'; 
+        skillsModal.style.transform = 'scale(1)'; 
+
+        setTimeout(function () {
+
+            // contentContactModal.style.overflowY = 'scroll'; 
+            bodySkillsModal.style.transform = 'translateX(0)'; 
+
+        }, 800);
+
+        setTimeout(function () {
+
+            closeSkillsModal.style.transform = 'translateX(0)'; 
+            modalSkillsName.style.transform = 'translateX(0)'; 
+            
+        }, 600);
+    }
+
+         
+    function closeSkillsModalMid() {
+
+    
+        bodySkillsModal.style.transform = 'translateX(-100%)'; 
+
+        setTimeout(function () {
+
+            closeSkillsModal.style.transform = 'translateX(200%)'; 
+            modalSkillsName.style.transform = 'translateX(-200%)'; 
+
+            bodySkillsModal.style.transform = 'translateX(-200%)'; 
+            
+        }, 600);
+
+        setTimeout(function () {    
+
+            // contentSkillsModal.style.overflowY = 'hidden';
+            skillsModal.style.transform = 'scale(0)'; 
+
+            document.body.style.overflow = 'auto'; 
+
+        }, 1000);
+    }
+
+
+    
+    const mqSkillsModalMid = window.matchMedia('(min-width: 769px) and (max-width: 1024px)')
+    function mcSkillsModalMid(e) {
+      
+      if (e.matches) {
+        
+        closeSkillsModal.addEventListener('click', closeSkillsModalMid); 
+        skills.addEventListener('click',  openSkillsModalMid); 
+
+      }else {
+        closeSkillsModal.removeEventListener('click', closeSkillsModalMid); 
+        skills.removeEventListener('click',  openSkillsModalMid); 
+      }
+
+    }
+
+    mqSkillsModalMid.addListener(mcSkillsModalMid)
+    mcSkillsModalMid(mqSkillsModalMid)
+
+    
+    // Animar el portfolio hasta 768
+
+    function openSkillsModalMin() {
+
+        
+
+        window.scrollTo({
+          top: document.body.scrollHeight, 
+          left: 0, 
+          behavior: 'smooth'
+        });
+
+        skills.scrollIntoView();
+        //mover el modal a la posicion actual en la pantalla        
+        // let value = window.scrollY; 
+        // skillsModal.style.transform = `scale(1) translateY(${value}px)`; 
+        document.body.style.overflow = 'hidden';
+        skillsModal.style.transform = `scale(1)`;
+
+        setTimeout(function () {
+
+            // contentContactModal.style.overflowY = 'scroll'; 
+            bodySkillsModal.style.transform = 'translateX(0)'; 
+
+        }, 800);
+
+        setTimeout(function () {
+
+            closeSkillsModal.style.transform = 'translateX(0)'; 
+            modalSkillsName.style.transform = 'translateX(0)'; 
+            
+        }, 600);
+    }
+
+         
+    function closeSkillsModalMin() {
+
+        
+
+        bodySkillsModal.style.transform = 'translateX(-100%)'; 
+
+        setTimeout(function () {
+
+            closeSkillsModal.style.transform = 'translateX(200%)'; 
+            modalSkillsName.style.transform = 'translateX(-200%)'; 
+            
+        }, 600);
+
+        setTimeout(function () {    
+
+    
+            // contentSkillsModal.style.overflowY = 'hidden';
+            skillsModal.style.transform = 'scale(0)'; 
+            document.body.style.overflow = 'auto'; 
+
+        }, 1000);
+
+
+    }
+
+
+    
+    const mqSkillsModalMin = window.matchMedia('(max-width: 768px)')
+    function mcSkillsModalMin(e) {
+      
+      if (e.matches) {
+
+        
+        closeSkillsModal.addEventListener('click', closeSkillsModalMin); 
+        skills.addEventListener('click',  openSkillsModalMin); 
+
+      }else {
+        closeSkillsModal.removeEventListener('click', closeSkillsModalMin); 
+        skills.removeEventListener('click',  openSkillsModalMin); 
+      }
+
+    }
+
+    mqSkillsModalMin.addListener(mcSkillsModalMin)
+    mcSkillsModalMin(mqSkillsModalMin)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    /********************************************* Animacion de Habilidades *********************************************/
+
+    const goals = document.getElementById('goals'); 
+
+    const goalsModal = document.getElementById('modal-goals'); 
+    const closeGoalsModal = document.getElementById('modal-close-goals'); 
+    const bodyGoalsModal = document.getElementById('body-modal-goals'); 
+    const contentGoalsModal = document.getElementById('content-modal-goals');
+    const modalGoalsName = document.getElementById('modal-name-goals')
+
+    closeGoalsModal.addEventListener('mouseover', function() { closeGoalsModal.style.transform = 'rotate(90deg)'}); 
+    closeGoalsModal.addEventListener('mouseleave', function() { closeGoalsModal.style.transform = 'rotate(0)'}); 
+
+    animateEleTitles(goals, 0, 0, '--colorSectionletterBlack', closeGoalsModal); 
+
+    // Animar el portfolio desde 1025 hasta 2560
+
+    function openGoalsModal() {
+
+
+        goalsModal.style.transform = 'scale(1)'; 
+
+        setTimeout(function () {
+
+            
+            bodyGoalsModal.style.transform = 'translateX(0)'; 
+
+        }, 600);
+
+        setTimeout(function () {
+
+            closeGoalsModal.style.transform = 'translateX(0)'; 
+            modalGoalsName.style.transform = 'translateX(0)'; 
+            
+        }, 800);
+    }
+
+         
+    function cGoalsModal() {
+
+        bodyGoalsModal.style.transform = 'translateX(-100%)'; 
+
+        setTimeout(function () {
+
+            closeGoalsModal.style.transform = 'translateX(200%)'; 
+            modalGoalsName.style.transform = 'translateX(-200%)'; 
+            
+        }, 600);
+
+        setTimeout(function () {    
+
+            // contentSkillsModal.style.overflowY = 'hidden';
+            goalsModal.style.transform = 'scale(0)'; 
+
+        }, 1000);
+    }
+
+    const mediaQueryModalGoals = window.matchMedia('(min-width: 1025px) and (max-width: 2560px)')
+
+    function modalChangeGoals(e) {
+      
+      if (e.matches) {
+       
+        closeGoalsModal.addEventListener('click', cGoalsModal); 
+        goals.addEventListener('click',  openGoalsModal); 
+
+      }else {
+        closeGoalsModal.removeEventListener('click', cGoalsModal); 
+        goals.removeEventListener('click',  openGoalsModal); 
+      }
+
+    }
+
+    mediaQueryModalGoals.addListener(modalChangeGoals);
+    modalChangeGoals(mediaQueryModalGoals);
+
+
+    // Animar el portfolio desde 769 hasta 1024
+
+    function openGoalsModalMid() {
+
+
+        window.scrollTo({
+          top: window.screen.height, 
+          left: 0, 
+          behavior: 'smooth'
+        });
+
+        goals.scrollIntoView(); 
+
+
+        document.body.style.overflow = 'hidden'; 
+        goalsModal.style.transform = 'scale(1)'; 
+
+        setTimeout(function () {
+
+            // contentContactModal.style.overflowY = 'scroll'; 
+            bodyGoalsModal.style.transform = 'translateX(0)'; 
+
+        }, 800);
+
+        setTimeout(function () {
+
+            closeGoalsModal.style.transform = 'translateX(0)'; 
+            modalGoalsName.style.transform = 'translateX(0)'; 
+            
+        }, 600);
+    }
+
+         
+    function closeGoalsModalMid() {
+
+    
+        bodyGoalsModal.style.transform = 'translateX(-100%)'; 
+
+        setTimeout(function () {
+
+            closeGoalsModal.style.transform = 'translateX(200%)'; 
+            modalGoalsName.style.transform = 'translateX(-200%)'; 
+
+            bodyGoalsModal.style.transform = 'translateX(-200%)'; 
+            
+        }, 600);
+
+        setTimeout(function () {    
+
+            // contentSkillsModal.style.overflowY = 'hidden';
+            goalsModal.style.transform = 'scale(0)'; 
+
+            document.body.style.overflow = 'auto'; 
+
+        }, 1000);
+    }
+
+
+    
+    const mqGoalsModalMid = window.matchMedia('(min-width: 769px) and (max-width: 1024px)')
+    function mcGoalsModalMid(e) {
+      
+      if (e.matches) {
+        
+        closeGoalsModal.addEventListener('click', closeGoalsModalMid); 
+        goals.addEventListener('click',  openGoalsModalMid); 
+
+      }else {
+        closeGoalsModal.removeEventListener('click', closeGoalsModalMid); 
+        goals.removeEventListener('click',  openGoalsModalMid); 
+      }
+
+    }
+
+    mqGoalsModalMid.addListener(mcGoalsModalMid)
+    mcGoalsModalMid(mqGoalsModalMid)
+
+
+    // Animar el portfolio hasta 768
+
+    function openGoalsModalMin() {
+
+        window.scrollTo({
+          top: document.body.scrollHeight, 
+          left: 0, 
+          behavior: 'smooth'
+        });
+
+        goals.scrollIntoView(); 
+
+        //mover el modal a la posicion actual en la pantalla        
+        // let value = window.scrollY; 
+        // skillsModal.style.transform = `scale(1) translateY(${value}px)`; 
+        document.body.style.overflow = 'hidden';
+        goalsModal.style.transform = `scale(1)`;
+
+        setTimeout(function () {
+
+            // contentContactModal.style.overflowY = 'scroll'; 
+            bodyGoalsModal.style.transform = 'translateX(0)'; 
+
+        }, 800);
+
+        setTimeout(function () {
+
+            closeGoalsModal.style.transform = 'translateX(0)'; 
+            modalGoalsName.style.transform = 'translateX(0)'; 
+            
+        }, 600);
+    }
+
+         
+    function closeGoalsModalMin() {
+
+        
+
+        bodyGoalsModal.style.transform = 'translateX(-100%)'; 
+
+        setTimeout(function () {
+
+            closeGoalsModal.style.transform = 'translateX(200%)'; 
+            modalGoalsName.style.transform = 'translateX(-200%)'; 
+            
+        }, 600);
+
+        setTimeout(function () {    
+
+    
+            // contentSkillsModal.style.overflowY = 'hidden';
+            goalsModal.style.transform = 'scale(0)'; 
+            document.body.style.overflow = 'auto'; 
+
+        }, 1000);
+
+
+    }
+
+
+    
+    const mqGoalsModalMin = window.matchMedia('(max-width: 768px)')
+    function mcGoalsModalMin(e) {
+      
+      if (e.matches) {
+
+        
+        closeGoalsModal.addEventListener('click', closeGoalsModalMin); 
+        goals.addEventListener('click',  openGoalsModalMin); 
+
+      }else {
+        closeGoalsModal.removeEventListener('click', closeGoalsModalMin); 
+        goals.removeEventListener('click',  openGoalsModalMin); 
+      }
+
+    }
+
+    mqGoalsModalMin.addListener(mcGoalsModalMin)
+    mcGoalsModalMin(mqGoalsModalMin)
+
+
+    /* ********** Contact Form ********** */
+
+        const $form = document.querySelector(".contact-form")
+        // $loader = document.querySelector(".contact-form-loader"),
+        // $response = document.querySelector(".contact-form-response");
+
+        $form.addEventListener("submit", (e) => {
+
+            e.preventDefault();
+
+            // $loader.classList.remove("none");
+
+              fetch("https://formsubmit.co/ajax/bymarcant@gmail.com", {
+                  method: "POST",
+                  body: new FormData(e.target),
+              })
+              .then((res) => (res.ok ? res.json() : Promise.reject(res)))
+              .then((json) => {
+
+                console.log(json);
+                // location.hash = "#gracias";
+                $form.reset();
+
+              })
+              .catch((err) => {
+                console.log(err);
+                let message =
+                  err.statusText || "Ocurrió un error al enviar, intenta nuevamente";
+                $response.querySelector(
+                  "h3"
+                ).innerHTML = `Error ${err.status}: ${message}`;
+              })
+              .finally(() => {
+                // $loader.classList.add("none");
+                // setTimeout(() => {
+                //   location.hash = "#close";
+                // }, 3000);
+              });
+          });
+
+
+
+
+
+}); 
