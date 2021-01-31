@@ -9,8 +9,9 @@
     <title>Portafolio CV - @bymarcant</title>
     <meta name="description" content="Hola bienvenid@ a mi Portafolio, soy Marcos, Desarrollador Web Junior">
     <link rel="canonical" href="https://marcant.github.io/bymarcant-portfolio-cv/">
-    <link rel="favicon" href="https://marcant.github.io/bymarcant-portfolio-cv/img/favicon.png">
+    <link rel="icon" type="image/png" href="https://marcant.github.io/bymarcant-portfolio-cv/img/favicon.png">
     <link rel="apple-touch-icon"href="https://marcant.github.io/bymarcant-portfolio-cv/img/favicon.png">
+
     <meta name="theme-color" content="#FFF8E7">
     <meta name="twitter:card" content="summary">
     <meta property="og:type" content="website">
@@ -28,7 +29,7 @@
 
             <div style="display: flex; justify-content: flex-start; align-items: center;">
                 <a href="#" class="logo"><span style="color: var(--blue);">by</span>marcant</a>
-                <small><i>v - 0.1</i></small>
+                <small style="padding-top: .75rem;"><i>v - 0.1 / 2021 </i></small>
             </div>
             
             <br>
@@ -298,13 +299,13 @@
                     <form class="contact-form">
                         
                         <label for="nombre">Nombre</label>
-                        <input type="text" name="name" id="nombre" title="Nombre sólo acepta letras y espacios en blanco" pattern="^[A-Za-zÑñÁáÉéÍíÓóÚúÜü\s]+$" required>
+                        <input type="text" name="name" id="nombre" minlength="5" title="Nombre sólo acepta letras y espacios en blanco" required>
 
                         <label for="email">Correo</label>
-                        <input type="email" name="email" id="email" title="Email incorrecto"  required>
+                        <input type="email" name="email" id="email" title="Email incorrecto" required>
 
                         <label for="mensaje">Deje su mensaje</label>
-                        <textarea name="comments" id="mensaje" required></textarea>
+                        <textarea name="comments" id="mensaje" minlength="5" required ></textarea>
 
                         <button type="submit">Enviar</button>
 
@@ -313,6 +314,14 @@
 
          </div>   
       
+
+      <div class="modal-confirm">
+            <div class="box-message">
+                <p>¡Mensaje enviado!</p>
+            </div>
+      </div>
+
+
         
     </div>
 
@@ -320,7 +329,7 @@
 
         <div></div>
 
-        <div class="content-modal-skills">
+        <div class="content-modal-skills" id="content-modal-skills">
 
              <div class="header-modal-skills">
                     <div class="header-content-modal-skills">
@@ -343,12 +352,12 @@
                 <div class="body-modal-skills" id="body-modal-skills">
 
                         <h4>Frontend: </h4>
-                        <p>Manejo de la sintaxis básica de <i>HTML, basic SEO, API'S </i> y plantillas de <i>HTML 5.</i></p>
-                        <p>Vanilla Javascript, sintaxis básica, manejo del <i> DOM, POO, </i>  asíncrono y plugins como <i>GSAP, anime.js, chart.js</i> entre otros según el tipo o necesidades de proyecto.
+                        <p>Manejo de la sintaxis básica de <i>HTML, basic SEO, API'S </i> y plantillas de <i>HTML 5</i></p>
+                        <p>Vanilla Javascript, sintaxis básica, manejo del DOM, POO, asíncrono y plugins como <i>GSAP, anime.js, chart.js</i>,entre otros según el tipo o necesidades de proyecto.
                         </p>
                         <p>CSS, uso de variables y sintaxis básica para todos los navegadores, responsive web desing y librerias o frameworks como <i>Sass, Bootstrap y Tailwind CSS</i>. 
                         </p>
-                        <p>Manejo de de herrmaientas como <i>Adobe Illustrator, Adobe Photoshop y Figma.</i></p>
+                        <p>Manejo de de herrmaientas como Adobe Illustrator, Adobe Photoshop y Figma.</p>
 
                         <h4>Backend: </h4>
                         <p>Conocimiento de <i>php</i> en cuanto a creación de sitios sencillos y <i>mysql</i>. Manejo de plantillas <i>Blade</i> de <i>Laravel</i>.
@@ -366,7 +375,7 @@
 
     <div></div>
 
-        <div class="content-modal-goals">
+        <div class="content-modal-goals" id="content-modal-goals">
 
              <div class="header-modal-goals">
                 <div class="header-content-modal-goals">
@@ -398,7 +407,7 @@
 
                 <h4>Backend: </h4>
                  <ul>
-                    <li>Estudiar y profundizar sobre <i>php</i> en cuanto a funciones nativas, crear <i>CSM</i> con <i>POO.</i> </li>
+                    <li>Estudiar y profundizar sobre <i>php</i> en cuanto a funciones nativas, crear CSM con POO.</li>
                     <li>Estudiar y aplicar proyectos con <i>Laravel</i> para crear aplicaciones web o <i>API</i>.</li>
                     <li>Realizar proyectos con <i>Headless CSM.</i></li>
                 </ul>
@@ -407,7 +416,7 @@
                  <ul>
                     <li>Mejorar el diseño del portafolio a medida que obtenga más conocimientos.</li>
                     <li>Incorporar estos conocimientos con la música y la ciencia.</li>
-                    <li>Crear un blog.</li>
+                    <li>Crear un blog</li>
                 </ul>
                 
              </div>

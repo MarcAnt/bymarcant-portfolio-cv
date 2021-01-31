@@ -1,11 +1,4 @@
-document.addEventListener('DOMContentLoaded', function() {
-
-	/*
-	“The nitrogen in our DNA, the calcium in our teeth, the iron in our blood, the carbon in our apple pies were made in the interiors of collapsing stars. We are made of star stuff”.
-		– Carl Sagan
-	*/
-
-    /********************************************* Animacion del Portafolio *********************************************/
+/********************************************* Animacion del Portafolio *********************************************/
 
     const portfolio = document.getElementById('portfolio'); 
 
@@ -726,19 +719,20 @@ document.addEventListener('DOMContentLoaded', function() {
 
         setTimeout(function () {
 
+            // contentSkillsModal.style.overflowX = 'hidden';
+
             closeSkillsModal.style.transform = 'translateX(200%)'; 
             modalSkillsName.style.transform = 'translateX(-200%)'; 
-
             bodySkillsModal.style.transform = 'translateX(-200%)'; 
             
         }, 600);
 
         setTimeout(function () {    
 
-            // contentSkillsModal.style.overflowY = 'hidden';
             skillsModal.style.transform = 'scale(0)'; 
 
             document.body.style.overflow = 'auto'; 
+            document.body.style.overflowX = 'hidden';
 
         }, 1000);
     }
@@ -815,9 +809,9 @@ document.addEventListener('DOMContentLoaded', function() {
         setTimeout(function () {    
 
     
-            // contentSkillsModal.style.overflowY = 'hidden';
             skillsModal.style.transform = 'scale(0)'; 
             document.body.style.overflow = 'auto'; 
+            document.body.style.overflowX = 'hidden'; 
 
         }, 1000);
 
@@ -859,7 +853,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 
-    /********************************************* Animacion de Habilidades *********************************************/
+    /********************************************* Animacion de Metas *********************************************/
 
     const goals = document.getElementById('goals'); 
 
@@ -955,7 +949,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
         setTimeout(function () {
 
-            // contentContactModal.style.overflowY = 'scroll'; 
+            // contentGoalsModal.style.overflowY = 'scroll'; 
             bodyGoalsModal.style.transform = 'translateX(0)'; 
 
         }, 800);
@@ -989,6 +983,7 @@ document.addEventListener('DOMContentLoaded', function() {
             goalsModal.style.transform = 'scale(0)'; 
 
             document.body.style.overflow = 'auto'; 
+            document.body.style.overflowX = 'hidden';
 
         }, 1000);
     }
@@ -1033,8 +1028,8 @@ document.addEventListener('DOMContentLoaded', function() {
         goalsModal.style.transform = `scale(1)`;
 
         setTimeout(function () {
-
-            // contentContactModal.style.overflowY = 'scroll'; 
+            // console.log(contentGoalsModal);
+            contentGoalsModal.style.overflowY = 'scroll'; 
             bodyGoalsModal.style.transform = 'translateX(0)'; 
 
         }, 800);
@@ -1064,10 +1059,10 @@ document.addEventListener('DOMContentLoaded', function() {
         setTimeout(function () {    
 
     
-            // contentSkillsModal.style.overflowY = 'hidden';
+            contentGoalsModal.style.overflowY = 'hidden';
             goalsModal.style.transform = 'scale(0)'; 
             document.body.style.overflow = 'auto'; 
-
+            document.body.style.overflowX = 'hidden';
         }, 1000);
 
 
@@ -1097,13 +1092,35 @@ document.addEventListener('DOMContentLoaded', function() {
 
     /* ********** Contact Form ********** */
 
-        const $form = document.querySelector(".contact-form")
-        // $loader = document.querySelector(".contact-form-loader"),
-        // $response = document.querySelector(".contact-form-response");
+        const $form = document.querySelector(".contact-form"); 
+        const name = document.getElementById('nombre');
+        const email = document.getElementById('email');
+        const modalConfirm = document.querySelector('.modal-confirm'); 
+
+        const expresionName = /^[a-zA-ZñÑáéíóúÁÉÍÓÚ ]*$/;   
+        const expresionEmail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,4})+$/;
 
         $form.addEventListener("submit", (e) => {
 
             e.preventDefault();
+
+            if(email.value !== '') {
+
+                if(!expresionEmail.test(email.value)){
+                    
+                    return false;
+                }
+
+            }else {
+                return false;
+            }
+
+
+            if(!expresionName.test(name.value)){
+                
+                return false;
+            }
+
 
             // $loader.classList.remove("none");
 
@@ -1116,27 +1133,26 @@ document.addEventListener('DOMContentLoaded', function() {
 
                 console.log(json);
                 // location.hash = "#gracias";
+                modalConfirm.classList.remove('close');
+                modalConfirm.classList.toggle('open'); 
+
                 $form.reset();
 
               })
               .catch((err) => {
+
                 console.log(err);
                 let message =
                   err.statusText || "Ocurrió un error al enviar, intenta nuevamente";
-                $response.querySelector(
-                  "h3"
-                ).innerHTML = `Error ${err.status}: ${message}`;
+                // $response.querySelector(
+                //   "h3"
+                // ).innerHTML = `Error ${err.status}: ${message}`;
               })
               .finally(() => {
                 // $loader.classList.add("none");
-                // setTimeout(() => {
-                //   location.hash = "#close";
-                // }, 3000);
+                setTimeout(() => {
+                    modalConfirm.classList.remove('open'); 
+                    modalConfirm.classList.toggle('close'); 
+                }, 3000);
               });
           });
-
-
-
-
-
-}); 
