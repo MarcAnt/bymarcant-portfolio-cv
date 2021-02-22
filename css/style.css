@@ -105,6 +105,7 @@
             background-color: var(--dark-black);
             transition: all .7s ease-in-out;
             width: 100%; 
+            overflow: hidden;
             /*height: 100%;*/
         }
 
