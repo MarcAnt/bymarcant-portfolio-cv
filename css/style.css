@@ -1,892 +1,794 @@
 /************************  Estilos generales  ****************************/
-        :root {
-            --black: #303030;
-            --light-black: #464646;
-            --coffee: #FFF8E7;
-            --coffee-dark: rgba(229,223,207, .3);
-            --coffee-dark-two: rgb(229,223,207);
-            --blue: #3EA6FF;
-            --dark-black: #181818;
-            --font-raleway: 'Raleway'; 
-
-            --colorSectionletterContact: rgba(70,70,70, .3); 
-            --colorSectionletterBlack: rgba(176,176,176, .3); 
-        }
-
-        html {
-          
-            font-size: 16px; 
-            color: var(--black);
-            font-family: 'Raleway', sans-serif;
-            scroll-behavior: smooth;
-        }
-
-        body {
-            margin: 0; 
-            padding: 0;
-            box-sizing: border-box;
-            background-color: var(--coffee); 
-            font-family: var(--font-family);
-            position: relative; 
-        }
-
-        a {
-            color: var(--black);
-            text-decoration: none;
-            font-size: 2rem;
-            font-weight: 400;
-        }
-
-
-
-
-
-
-        .grid-content{
-
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            
-        }
-
-        .grid-item {
-            width: 100%;
-            height: 50vh;
-
-        }
-
-        .info {
-            background-color: var(--coffee);
-            transition: all .7s ease-in-out;
-          
-        }
-
-        .info a svg {
-            fill: var(--black); 
-        }
-
-        .info a:nth-of-type(2) {
-
-            padding: .5rem; 
-
-        }
-
-        .info h2 {
-            font-weight: 300; 
-            padding: 1rem; 
-            margin: 0;
-            font-size: 1.15rem;
-        }
-
-        .info h1 {
-            margin: 0; 
-            padding: 1rem; 
-            font-size: 1.3rem;
-        }
-
-
-        .logo {
-            display: block;
-            padding: 1rem; 
-        }
-
-
-        .portfolio {
-
-            transition: all .3s ease-in-out;
-            background-color: white;
-            position: relative;
-            overflow: hidden;
-            cursor: pointer;
-        }
-
-
-        .photo {
-            background-color: var(--dark-black);
-            transition: all .7s ease-in-out;
-            width: 100%; 
-            overflow: hidden;
-            /*height: 100%;*/
-        }
-
-        .photo img {
-            max-width: 100%; 
-            /* height: 100%;  */
-            object-fit: cover;
-        }
-
-        .contact {
-
-            background-color: var(--coffee-dark-two);
-            position: relative;
-            cursor: pointer;
-            overflow: hidden;
-            transition: all .3s ease-in-out;
-        }
-
-        .skills {
-            background-color: var(--light-black);
-            cursor: pointer;
-            position: relative;
-            overflow: hidden;
-            transition: all .3s ease-in-out;
-        }
-
-        .goals {
-            background-color: var(--black);
-            cursor: pointer;
-            overflow: hidden;
-            transition: all .3s ease-in-out;
-        }
-
-        /************************  Estilos de las secciones  ****************************/
-
-        .skills .section-name h2, .skills .section-letters p, .goals .section-letters p, .goals .section-name h2 {
-            color: var(--coffee);
-        }
-
-        .section-name {
-            width: 100%; 
-            height: 20%;
-            display: flex;
-            justify-content: flex-start;
-            align-items: center;
-            transition: all .3s ease-in-out; 
-        }
-
-        .section-name h2 {
-            font-weight: 300; 
-            margin-left: 1rem; 
-            font-size: 2rem; 
-            transition: all .3s ease-in-out; 
-
-        }
-
-        .section-letters {
-            width: 100%; 
-            height: 60%; 
-            display: flex; 
-            justify-content: center;
-            align-items: center;
-            transition: all .3s ease-in-out; 
-        }
-
-        .section-letters p {
-            font-size: 6rem; 
-            font-style: italic;
-            transition: all .3s ease-in-out; 
-        }
-
-        .section-letters p:nth-child(2)  {
-            padding-top: 4rem; 
-        }
-
-
-        .section-info {
-            width: 100%; 
-            height: 20%; 
-            display: flex;
-            justify-content: flex-end;
-            align-items: center;
-            transition: all .3s ease-in-out; 
-        }
-
-        .section-info p {
-            text-align: right;
-            margin-right: 1rem; 
-            transition: all .3s ease-in-out; 
-        }
-
-        input:-webkit-autofill,
-        input:-webkit-autofill:hover, 
-        input:-webkit-autofill:focus,
-        textarea:-webkit-autofill,
-        textarea:-webkit-autofill:hover,
-        textarea:-webkit-autofill:focus {
-       
-        -webkit-text-fill-color: var(--black);
-        -webkit-box-shadow: 0 0 0px 1000px rgba(0, 0, 0, 0) inset;
-        transition: background-color 5000s ease-in-out 0s;
-        }
-
-        ::-webkit-scrollbar {
-            width: 12px;
-        }
-         
-        ::-webkit-scrollbar-track {
-            -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3); 
-            border-radius: 10px;
-        }
-         
-        ::-webkit-scrollbar-thumb {
-            border-radius: 10px;
-            -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5); 
-        }
-
-
-
-        /************************  Estilos del modal Portafolio  ****************************/
-
-
-        .modal-portfolio {
-            top: 0; 
-            left: 0; 
-            position: absolute;
-            display: grid;
-            grid-template-columns:  1fr 2fr;
-            transform-origin: 35% top; 
-            transform: scale(0);
-            transition: all .8s ease-in-out;
-            
-        }
-
-        .content-modal {
-            background-color: white;
-            overflow-y: hidden;
-            height: 100vh; 
-        }
-
-        .body-modal {
-            height: 100%; 
-            display: grid;
-            grid-template-columns:  repeat(2, 1fr);
-            grid-template-rows: repeat(6, 1fr);
-            grid-gap: 2rem 2rem;
-
-            transform: translateX(-100%);
-            transition: all .6s ease-in-out;
-        }
-
-        .header-modal {
-            overflow: hidden;
-            position: sticky;
-            top: 0;
-            left: 0;
-            background: white;
-            z-index: 100; 
-        }
-
-        .header-content-modal {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .modal-name h3 {
-            font-size: 2rem; 
-            font-weight: 300; 
-            margin-left: 1rem; 
-            transform: translateX(-200%);
-            transition: all .6s ease-in-out;
-        }
-
-        .modal-close {
-            background-color: transparent;
-            border: 0; 
-            outline: 0; 
-            margin-right: 1rem; 
-            transform: translateX(200%);
-            transition: all .6s ease-in-out;
-        }
-
-        .img-portfolio {
-            width: 100%;
-            margin-left: 1rem;
-        }
-
-        .info-portfolio {
-            margin-right: 1rem; 
-        }
-
-        .info-portfolio a{
-            text-decoration: none;
-            color: var(--blue);  
-        }
-        
-        
-        .img-portfolio img{
-            width: 100%; 
-        }
-
-        .modal-close {
-            cursor: pointer; 
-            transition: all .3s ease-in-out;
-        }
-
-        .modal-close:hover {
-            transform: rotate(90deg);
-        }
-
-
-        /************************  Estilos del Modal Contacto  ****************************/
-
-        .modal-contact {
-            width: 100%; 
-            top: 0; 
-            left: 0; 
-            position: absolute;
-            display: grid; 
-            grid-template-columns:  1fr 2fr;
-            transform-origin: right top; 
-            transform: scale(0);
-            transition: all .8s ease-in-out;
-            
-        }
-
-        .content-modal-contact {
-            background-color: var(--coffee-dark-two);
-            overflow: hidden;
-            height: 100vh; 
-        }
-
-        .header-modal-contact {
-            
-            background-color: var(--coffee-dark-two);
-            
-        }
-
-        .header-content-modal-contact {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        
-        .modal-name-contact h3 {
-            font-size: 2rem; 
-            font-weight: 300; 
-            margin-left: 1rem; 
-            transform: translateX(-200%);
-            transition: all .6s ease-in-out;
-        }
-
-        .close-contact {
-            cursor: pointer;
-            background-color: transparent;
-            border: 0; 
-            outline: 0; 
-            margin-right: 1rem; 
-            transform: translateX(200%);
-            transition: all .3s ease-in-out;
-        }
-
-        .body-modal-contact {
-
-            height: 65%; 
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-            transform: translateX(-100%);
-            transition: all .6s ease-in-out;
-        }
-
-        .contact-form {
-            width: 90%; 
-            /*height: 100%;*/
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-            margin-top: 4.5rem; 
-        }
-
-        .body-modal-contact input {
-
-            width: 100%; 
-            background-color: transparent;
-            border: none; 
-            outline: none; 
-            border-bottom: 1px solid var(--black);
-            font-size: 1.5rem; 
-            font-family: var(--font-raleway); 
-
-        }
-
-        .body-modal-contact label {
-
-            align-self: flex-start;
-            margin: 1.5rem 0;
-            font-size: 1.5rem;
-
-        }
-
-
-        .body-modal-contact textarea {
-            height: 10rem; 
-            width: 100%; 
-            background-color: transparent;
-            border: none; 
-            outline: none; 
-            border-bottom: 1px solid var(--black);
-            font-size: 1rem; 
-            font-family: var(--font-raleway); 
-
-        }
-
-        .body-modal-contact button {
-
-            text-transform: uppercase;
-            background-color: transparent;
-            border: 1px solid var(--black); 
-            outline: none; 
-            font-size: 1.5rem; 
-            font-family: var(--font-raleway); 
-            cursor: pointer; 
-            padding: 1rem; 
-            margin: 1.8rem 0; 
-            align-self: flex-start;
-        }
-
-
-        /*Modal mensaje*/
-        .modal-confirm  {
-            position: absolute;
-            left: 0; 
-            top: 0; 
-            width: 100%; 
-            height: 100%; 
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-            z-index: 999; 
-            pointer-events: none;
-            transform: translateY(0);
-            opacity: 0;
-            transition: all .5s ease-in-out;
-        }
-
-        .box-message {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background-color: var(--black); 
-            width: 25%; 
-            height: 5rem; 
-            border: .1rem solid var(--coffee); 
-        }
-
-        .box-message p {
-            color: var(--coffee); 
-            text-align: center;
-            font-weight: 500; 
-            font-size: 1.3rem; 
-        }
-
-        .open {
-            transform: translateY(-3rem);
-            opacity: 1; 
-        }
-
-        .close {
-            transform: translateY(0);
-            opacity: 0;
-        }
-
-
-
-
-
-
-        /************************  Estilos del Modal Habilidades  ****************************/
-
-        .modal-skills {
-            position: absolute;
-            right: 0; 
-            top: 0; 
-            width: 100vw; 
-            height: 100vh;  
-            display: grid; 
-            grid-template-columns: 1fr 2fr; 
-            grid-template-rows: 1fr; 
-            transform-origin: 35% bottom;
-            transition: all .8s ease-in-out;
-            transform: scale(0);
-        }
-
-
-        .content-modal-skills {
-    
-            width: 100%; 
-            height: 100vh;
-            background-color: var(--light-black); 
-            overflow: hidden;
-        }
-
-        .header-modal-skills .header-content-modal-skills {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .header-content-modal-skills {
-            padding: 1rem;
-        }
-
-        .modal-name-skills h3 {
-            color: var(--coffee); 
-            font-weight: 300; 
-            font-size: 2.5rem; 
-            margin: .5rem .5rem; 
-            transform: translateX(-150%);
-            transition: all .2s ease-in-out;
-        }
-
-        .modal-close-skills {
-            cursor: pointer; 
-            background-color: transparent; 
-            border: none; 
-            transform: translateX(150%);
-            transition: all .2s ease-in-out;
-            outline: none; 
-        }
-
-        .body-modal-skills {
-
-            padding: 1rem; 
-            transform: translateX(-100%);
-            transition: all .3s ease-in-out; 
-        }
-
-        .body-modal-skills h4 {
-            color: var(--coffee); 
-            font-size: 2rem; 
-            margin:.5rem 0;
-        }
-
-        .body-modal-skills p {
-            color: var(--coffee); 
-            font-size: 1rem; 
-        }
-
-        .body-modal-skills h4, .body-modal-skills p {
-            padding: 0 1rem; 
-        } 
-
-
-
-        /************************  Estilos del Modal Metas  ****************************/
-
-
-        .goals-modal {
-
-            position: absolute;
-            right: 0; 
-            top: 0; 
-            width: 100vw; 
-            height: 100vh;  
-            display: grid; 
-            grid-template-columns: 1fr 2fr; 
-            grid-template-rows: 1fr; 
-            transform-origin: 100% bottom;
-            transition: all .8s ease-in-out;
-            transform: scale(0);
-
-        }
-
-        .content-modal-goals {
-            
-            width: 100%; 
-            height: 100vh;
-            background-color: var(--black); 
-            overflow: hidden;
-        }
-
-        .header-modal-goals .header-content-modal-goals {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .header-content-modal-goals {
-            padding: 1rem;
-        }
-
-        .modal-name-goals h3 {
-            color: var(--coffee); 
-            font-weight: 300; 
-            font-size: 2.5rem; 
-            margin: .5rem .5rem; 
-            transform: translateX(-150%);
-            transition: all .2s ease-in-out;
-        }
-
-        .modal-close-goals {
-            cursor: pointer; 
-            background-color: transparent; 
-            border: none; 
-            transform: translateX(150%);
-            transition: all .2s ease-in-out;
-            outline: none; 
-        }
-
-        .body-modal-goals {
-
-            padding: 1rem; 
-            transform: translateX(-100%);
-            transition: all .3s ease-in-out; 
-        }
-
-        .body-modal-goals h4 {
-            color: var(--coffee); 
-            font-size: 2rem; 
-            margin:.5rem 0;
-        }
-
-        .body-modal-goals ul li{
-            font-size: 1rem; 
-            color: var(--coffee); 
-
-        }
-
-        .body-modal-goals p {
-            color: var(--coffee); 
-            font-size: 1.2rem; 
-        }
-
-        .body-modal-goals h4, .body-modal-goals p {
-            padding: 0 1rem; 
-        } 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        @media(min-width: 1025px) and (max-width: 2560px)  {
-            /************************   Generales  ****************************/
-
-            body {
-                overflow: hidden; 
-            }
-
-        }
-
-
-
-        @media(min-width: 769px) and (max-width: 1024px)  {
-
-            /************************   Generales  ****************************/
-            .grid-content{
-                grid-template-columns: repeat(2, 1fr);
-
-            }
-
-            /************************   Portafolio  ****************************/
-            .modal-portfolio {
-            
-                transform-origin: right top; 
-                grid-template-columns:  1fr;
-        
-            }
-
-            /************************   Contact  ****************************/
-            .modal-contact {
-            
-                transform-origin: left bottom; 
-                grid-template-columns:  1fr;
-        
-            }
-
-            /************************   Habilidades  ****************************/
-            
-            .modal-skills { 
-                top: auto;
-                right: auto;
-                bottom: 0; 
-                left: 0;
-                transform-origin: left bottom; 
-                grid-template-columns:  1fr;
-            }
-
-            /************************   Goals  ****************************/
-
-            .goals-modal { 
-                top: auto;
-                right: auto;
-                bottom: 0; 
-                left: 0;
-                transform-origin: right bottom; 
-                grid-template-columns:  1fr;
-            }
-
-        }
-
-
-
-        @media(max-width: 768px)  {
-
-            /************************   Generales  ****************************/
-            .grid-content{
-                grid-template-rows: repeat(5, 1fr);
-                grid-template-columns: 1fr;
-
-            }
-
-            .photo {
-                display: none;
-            }
-
-            /************************   Portafolio  ****************************/
-            .modal-portfolio {
-            
-                transform-origin: center center; 
-                grid-template-columns:  1fr;
-        
-            }
-
-            /************************   Contact  ****************************/
-
-
-            .modal-contact {
-            
-                /*transform-origin: center center;*/
-                grid-template-columns:  1fr;
-        
-            }
-
-            /************************   Habilidades  ****************************/
-            
-            .modal-skills { 
-                top: auto;
-                right: auto;
-                bottom: 0; 
-                left: 0;
-                transform-origin: center top; 
-                grid-template-columns:  1fr;
-            }
-
-            /************************   Metas  ****************************/
-            
-            .goals-modal { 
-                top: auto;
-                right: auto;
-                bottom: 0; 
-                left: 0;
-                transform-origin: center bottom; 
-                grid-template-columns:  1fr;
-            }
-
-
-        /*  .content-modal-goals {
+:root {
+  --black: #303030;
+  --light-black: #464646;
+  --coffee: #fff8e7;
+  --coffee-dark: rgba(229, 223, 207, 0.3);
+  --coffee-dark-two: rgb(229, 223, 207);
+  --blue: #3ea6ff;
+  --dark-black: #181818;
+  --font-raleway: "Raleway";
+
+  --colorSectionletterContact: rgba(70, 70, 70, 0.3);
+  --colorSectionletterBlack: rgba(176, 176, 176, 0.3);
+}
+
+html {
+  font-size: 16px;
+  color: var(--black);
+  font-family: "Raleway", sans-serif;
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background-color: var(--coffee);
+  font-family: var(--font-family);
+  position: relative;
+}
+
+a {
+  color: var(--black);
+  text-decoration: none;
+  font-size: 2rem;
+  font-weight: 400;
+}
+
+.grid-content {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.grid-item {
+  width: 100%;
+  height: 50vh;
+}
+
+.info {
+  background-color: var(--coffee);
+  transition: all 0.7s ease-in-out;
+}
+
+.info a svg {
+  fill: var(--black);
+}
+
+.info a:nth-of-type(2) {
+  padding: 0.5rem;
+}
+
+.info h2 {
+  font-weight: 300;
+  padding: 1rem;
+  margin: 0;
+  font-size: 1.15rem;
+}
+
+.info h1 {
+  margin: 0;
+  padding: 1rem;
+  font-size: 1.3rem;
+}
+
+.logo {
+  display: block;
+  padding: 1rem;
+}
+
+.portfolio {
+  transition: all 0.3s ease-in-out;
+  background-color: white;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.photo {
+  background-color: var(--dark-black);
+  transition: all 0.7s ease-in-out;
+  width: 100%;
+  overflow: hidden;
+  /*height: 100%;*/
+}
+
+.photo img {
+  max-width: 100%;
+  /* height: 100%;  */
+  object-fit: cover;
+}
+
+.contact {
+  background-color: var(--coffee-dark-two);
+  position: relative;
+  cursor: pointer;
+  overflow: hidden;
+  transition: all 0.3s ease-in-out;
+}
+
+.skills {
+  background-color: var(--light-black);
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease-in-out;
+}
+
+.goals {
+  background-color: var(--black);
+  cursor: pointer;
+  overflow: hidden;
+  transition: all 0.3s ease-in-out;
+}
+
+/************************  Estilos de las secciones  ****************************/
+
+.skills .section-name h2,
+.skills .section-letters p,
+.goals .section-letters p,
+.goals .section-name h2 {
+  color: var(--coffee);
+}
+
+.section-name {
+  width: 100%;
+  height: 20%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  transition: all 0.3s ease-in-out;
+}
+
+.section-name h2 {
+  font-weight: 300;
+  margin-left: 1rem;
+  font-size: 2rem;
+  transition: all 0.3s ease-in-out;
+}
+
+.section-letters {
+  width: 100%;
+  height: 60%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.3s ease-in-out;
+}
+
+.section-letters p {
+  font-size: 6rem;
+  font-style: italic;
+  transition: all 0.3s ease-in-out;
+}
+
+.section-letters p:nth-child(2) {
+  padding-top: 4rem;
+}
+
+.section-info {
+  width: 100%;
+  height: 20%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  transition: all 0.3s ease-in-out;
+}
+
+.section-info p {
+  text-align: right;
+  margin-right: 1rem;
+  transition: all 0.3s ease-in-out;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus {
+  -webkit-text-fill-color: var(--black);
+  -webkit-box-shadow: 0 0 0px 1000px rgba(0, 0, 0, 0) inset;
+  transition: background-color 5000s ease-in-out 0s;
+}
+
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5);
+}
+
+/************************  Estilos del modal Portafolio  ****************************/
+
+.modal-portfolio {
+  top: 0;
+  left: 0;
+  position: absolute;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  transform-origin: 35% top;
+  transform: scale(0);
+  transition: all 0.8s ease-in-out;
+}
+
+.content-modal {
+  background-color: white;
+  overflow-y: hidden;
+  height: 100vh;
+}
+
+.body-modal {
+  /* height: 100%; */
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(6, 1fr);
+  grid-gap: 2rem 2rem;
+
+  transform: translateX(-100%);
+  transition: all 0.6s ease-in-out;
+}
+
+.header-modal {
+  overflow: hidden;
+  position: sticky;
+  top: 0;
+  left: 0;
+  background: white;
+  z-index: 100;
+}
+
+.header-content-modal {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.modal-name h3 {
+  font-size: 2rem;
+  font-weight: 300;
+  margin-left: 1rem;
+  transform: translateX(-200%);
+  transition: all 0.6s ease-in-out;
+}
+
+.modal-close {
+  background-color: transparent;
+  border: 0;
+  outline: 0;
+  margin-right: 1rem;
+  transform: translateX(200%);
+  transition: all 0.6s ease-in-out;
+}
+
+.img-portfolio {
+  width: 100%;
+  margin-left: 1rem;
+}
+
+.info-portfolio {
+  margin-right: 1rem;
+}
+
+.info-portfolio a {
+  text-decoration: none;
+  color: var(--blue);
+}
+
+.img-portfolio img {
+  width: 100%;
+}
+
+.modal-close {
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+.modal-close:hover {
+  transform: rotate(90deg);
+}
+
+/************************  Estilos del Modal Contacto  ****************************/
+
+.modal-contact {
+  width: 100%;
+  top: 0;
+  left: 0;
+  position: absolute;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  transform-origin: right top;
+  transform: scale(0);
+  transition: all 0.8s ease-in-out;
+}
+
+.content-modal-contact {
+  background-color: var(--coffee-dark-two);
+  overflow: hidden;
+  height: 100vh;
+}
+
+.header-modal-contact {
+  background-color: var(--coffee-dark-two);
+}
+
+.header-content-modal-contact {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.modal-name-contact h3 {
+  font-size: 2rem;
+  font-weight: 300;
+  margin-left: 1rem;
+  transform: translateX(-200%);
+  transition: all 0.6s ease-in-out;
+}
+
+.close-contact {
+  cursor: pointer;
+  background-color: transparent;
+  border: 0;
+  outline: 0;
+  margin-right: 1rem;
+  transform: translateX(200%);
+  transition: all 0.3s ease-in-out;
+}
+
+.body-modal-contact {
+  height: 65%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  transform: translateX(-100%);
+  transition: all 0.6s ease-in-out;
+}
+
+.contact-form {
+  width: 90%;
+  /*height: 100%;*/
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 4.5rem;
+}
+
+.body-modal-contact input {
+  width: 100%;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  border-bottom: 1px solid var(--black);
+  font-size: 1.5rem;
+  font-family: var(--font-raleway);
+}
+
+.body-modal-contact label {
+  align-self: flex-start;
+  margin: 1.5rem 0;
+  font-size: 1.5rem;
+}
+
+.body-modal-contact textarea {
+  height: 10rem;
+  width: 100%;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  border-bottom: 1px solid var(--black);
+  font-size: 1rem;
+  font-family: var(--font-raleway);
+  resize: none;
+}
+
+.body-modal-contact button {
+  text-transform: uppercase;
+  background-color: transparent;
+  border: 1px solid var(--black);
+  outline: none;
+  font-size: 1.5rem;
+  font-family: var(--font-raleway);
+  cursor: pointer;
+  padding: 1rem;
+  margin: 1.8rem 0;
+  align-self: flex-start;
+}
+
+/*Modal mensaje*/
+.modal-confirm {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  z-index: 999;
+  pointer-events: none;
+  transform: translateY(0);
+  opacity: 0;
+  transition: all 0.5s ease-in-out;
+}
+
+.box-message {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--black);
+  width: 25%;
+  height: 5rem;
+  border: 0.1rem solid var(--coffee);
+}
+
+.box-message p {
+  color: var(--coffee);
+  text-align: center;
+  font-weight: 500;
+  font-size: 1.3rem;
+}
+
+.open {
+  transform: translateY(-3rem);
+  opacity: 1;
+}
+
+.close {
+  transform: translateY(0);
+  opacity: 0;
+}
+
+/************************  Estilos del Modal Habilidades  ****************************/
+
+.modal-skills {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  grid-template-rows: 1fr;
+  transform-origin: 35% bottom;
+  transition: all 0.8s ease-in-out;
+  transform: scale(0);
+}
+
+.content-modal-skills {
+  width: 100%;
+  height: 100vh;
+  background-color: var(--light-black);
+  overflow: hidden;
+}
+
+.header-modal-skills .header-content-modal-skills {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header-content-modal-skills {
+  padding: 1rem;
+}
+
+.modal-name-skills h3 {
+  color: var(--coffee);
+  font-weight: 300;
+  font-size: 2.5rem;
+  margin: 0.5rem 0.5rem;
+  transform: translateX(-150%);
+  transition: all 0.2s ease-in-out;
+}
+
+.modal-close-skills {
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+  transform: translateX(150%);
+  transition: all 0.2s ease-in-out;
+  outline: none;
+}
+
+.body-modal-skills {
+  padding: 1rem;
+  transform: translateX(-100%);
+  transition: all 0.3s ease-in-out;
+}
+
+.body-modal-skills h4 {
+  color: var(--coffee);
+  font-size: 2rem;
+  margin: 0.5rem 0;
+}
+
+.body-modal-skills p {
+  color: var(--coffee);
+  font-size: 1rem;
+}
+
+.body-modal-skills h4,
+.body-modal-skills p {
+  padding: 0 1rem;
+}
+
+/************************  Estilos del Modal Metas  ****************************/
+
+.goals-modal {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  grid-template-rows: 1fr;
+  transform-origin: 100% bottom;
+  transition: all 0.8s ease-in-out;
+  transform: scale(0);
+}
+
+.content-modal-goals {
+  width: 100%;
+  height: 100vh;
+  background-color: var(--black);
+  overflow: hidden;
+}
+
+.header-modal-goals .header-content-modal-goals {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header-content-modal-goals {
+  padding: 1rem;
+}
+
+.modal-name-goals h3 {
+  color: var(--coffee);
+  font-weight: 300;
+  font-size: 2.5rem;
+  margin: 0.5rem 0.5rem;
+  transform: translateX(-150%);
+  transition: all 0.2s ease-in-out;
+}
+
+.modal-close-goals {
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+  transform: translateX(150%);
+  transition: all 0.2s ease-in-out;
+  outline: none;
+}
+
+.body-modal-goals {
+  padding: 1rem;
+  transform: translateX(-100%);
+  transition: all 0.3s ease-in-out;
+}
+
+.body-modal-goals h4 {
+  color: var(--coffee);
+  font-size: 2rem;
+  margin: 0.5rem 0;
+}
+
+.body-modal-goals ul li {
+  font-size: 1rem;
+  color: var(--coffee);
+}
+
+.body-modal-goals p {
+  color: var(--coffee);
+  font-size: 1.2rem;
+}
+
+.body-modal-goals h4,
+.body-modal-goals p {
+  padding: 0 1rem;
+}
+
+@media (min-width: 1025px) and (max-width: 2560px) {
+  /************************   Generales  ****************************/
+
+  body {
+    overflow: hidden;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  /************************   Generales  ****************************/
+  .grid-content {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  /************************   Portafolio  ****************************/
+  .modal-portfolio {
+    transform-origin: right top;
+    grid-template-columns: 1fr;
+  }
+
+  /************************   Contact  ****************************/
+  .modal-contact {
+    transform-origin: left bottom;
+    grid-template-columns: 1fr;
+  }
+
+  /************************   Habilidades  ****************************/
+
+  .modal-skills {
+    top: auto;
+    right: auto;
+    bottom: 0;
+    left: 0;
+    transform-origin: left bottom;
+    grid-template-columns: 1fr;
+  }
+
+  /************************   Goals  ****************************/
+
+  .goals-modal {
+    top: auto;
+    right: auto;
+    bottom: 0;
+    left: 0;
+    transform-origin: right bottom;
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  /************************   Generales  ****************************/
+  .grid-content {
+    grid-template-rows: repeat(5, 1fr);
+    grid-template-columns: 1fr;
+  }
+
+  .photo {
+    display: none;
+  }
+
+  /************************   Portafolio  ****************************/
+  .modal-portfolio {
+    transform-origin: center center;
+    grid-template-columns: 1fr;
+  }
+
+  /************************   Contact  ****************************/
+
+  .modal-contact {
+    /*transform-origin: center center;*/
+    grid-template-columns: 1fr;
+  }
+
+  /************************   Habilidades  ****************************/
+
+  .modal-skills {
+    top: auto;
+    right: auto;
+    bottom: 0;
+    left: 0;
+    transform-origin: center top;
+    grid-template-columns: 1fr;
+  }
+
+  /************************   Metas  ****************************/
+
+  .goals-modal {
+    top: auto;
+    right: auto;
+    bottom: 0;
+    left: 0;
+    transform-origin: center bottom;
+    grid-template-columns: 1fr;
+  }
+
+  /*  .content-modal-goals {
 
                 overflow-y: scroll; 
 
             }*/
+}
 
+@media (max-width: 468px) {
+  /************************ Info  ****************************/
 
-        }
+  .info h2 {
+    font-size: 1.45rem;
+  }
 
+  .info h1 {
+    display: none;
+  }
 
-        @media(max-width: 468px) {
+  /************************ Modal Portafolio  ****************************/
+  .body-modal {
+    grid-template-rows: repeat(12, 1fr);
+    grid-template-columns: 1fr;
+  }
 
-            /************************ Info  ****************************/
+  .img-portfolio {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 0;
+  }
 
-            .info h2 {
-                font-size: 1.45rem; 
-            }
+  .img-portfolio img {
+    width: 90%;
+  }
 
-            .info h1 { 
-                display: none; 
-             }
+  .info-portfolio {
+    border-bottom: 1px solid var(--light-black);
+    margin: 0 1.5rem;
+  }
+  /************************ Modal Contacto  ****************************/
 
-            /************************ Modal Portafolio  ****************************/
-            .body-modal {
-                grid-template-rows: repeat(12, 1fr);
-                grid-template-columns: 1fr;
-            }
+  .body-modal-contact label {
+    margin: 1.5rem 1rem;
+    font-size: 1rem;
+  }
 
-            .img-portfolio {
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                margin-left: 0; 
-            }
+  .body-modal-contact button {
+    align-self: center;
+    width: 90%;
+    font-size: 1rem;
+  }
 
-            .img-portfolio img {
-                width: 90%; 
-            }
+  /************************ Modal Habilidades  ****************************/
 
-            .info-portfolio {
-                border-bottom: 1px solid var(--light-black); 
-                margin: 0 1.5rem;
-            }
-            /************************ Modal Contacto  ****************************/
+  .content-modal-skills {
+    overflow-y: scroll;
+  }
 
+  .header-modal-skills {
+    background-color: var(--light-black);
+    position: sticky;
+    top: 0;
+    left: 0;
+    z-index: 100;
+  }
 
-            .body-modal-contact label {
-                margin: 1.5rem 1rem;
-                font-size: 1rem;
-            }
+  .body-modal-skills h4 {
+    font-size: 1.5rem;
+  }
 
-            .body-modal-contact button {
-                align-self: center;
-                width: 90%; 
-                font-size: 1rem; 
-            }
+  .body-modal-skills p {
+    line-height: 1.3;
+    font-size: 0.85rem;
+  }
 
-            /************************ Modal Habilidades  ****************************/
+  /************************ Modal Goals  ****************************/
+  .content-modal-goals {
+    overflow-y: scroll;
+  }
 
-            .content-modal-skills {
+  .header-modal-goals {
+    background-color: var(--black);
+    position: sticky;
+    top: 0;
+    left: 0;
+    z-index: 100;
+  }
 
-                overflow-y: scroll;
+  .body-modal-goals ul li {
+    font-size: 0.75rem;
+    padding: 0.25rem 0;
+  }
 
-            }
-
-            .header-modal-skills {
-                background-color: var(--light-black); 
-                position: sticky;
-                top: 0; 
-                left: 0; 
-                z-index: 100; 
-            }
-
-
-            .body-modal-skills h4{
-                font-size: 1.5rem; 
-
-            }
-
-            .body-modal-skills p {
-                line-height: 1.3; 
-                font-size: .85rem; 
-
-            }
-
-            /************************ Modal Goals  ****************************/
-            .content-modal-goals {
-
-                overflow-y: scroll; 
-
-            }
-
-            .header-modal-goals {
-                background-color: var(--black); 
-                position: sticky;
-                top: 0; 
-                left: 0; 
-                z-index: 100; 
-            }
-
-            .body-modal-goals ul li{
-                font-size: .75rem;
-                padding: .25rem 0; 
-
-            }
-
-            .body-modal-goals h4 {
-
-                font-size: 1.5rem; 
-
-            }
-
-
-        }
+  .body-modal-goals h4 {
+    font-size: 1.5rem;
+  }
+}
