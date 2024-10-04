@@ -24,9 +24,13 @@
   }
 
   async function fetchLang(lang = "en") {
-    let urlFile = `../lang/lang.json`;
+    let urlFile = `https://raw.githubusercontent.com/MarcAnt/bymarcant-portfolio-cv/refs/heads/main/lang/lang.json`;
     try {
-      const getLang = await fetch(urlFile);
+      const getLang = await fetch(urlFile, {
+        headers: {
+          Accept: "application/json",
+        },
+      });
       const json = await getLang.json();
       const langTranslations = json[lang];
       translator(langTranslations);
