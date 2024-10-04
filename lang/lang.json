@@ -9,7 +9,7 @@
     "greet": "Hola, Soy Marcos.",
     "description": {
       "tech": "React/TypeScript",
-      "job": "Programador web",
+      "job": "Front-end programador web",
       "other": "Guitarrista y Prof. de Química"
     },
     "projects-count": "Proyectos: 8",
@@ -28,7 +28,7 @@
       "faripets-title": "FARIPETS",
       "faripets-description": "Blog para el cuidado de Mascotas. Logotipo realizado por mi.",
       "metronome-title": "Metrónomo",
-      "metronome-description": "Metrónomo básico realizado con Javascript.",
+      "metronome-description": "Metrónomo básico realizado con JavaScript.",
       "chessboard-title": "Chess960",
       "chessboard-description": "Creador de posiciones random para ajedrez de Fisher.",
       "groupgg-title": "GrupoGG",
@@ -70,10 +70,10 @@
       "p-3": "Aprender sobre programación reactiva con <i>Javascript</i> y realizar más proyectos con <i>React y TypeScript</i>.",
       "p-4": "Crear animaciones más complejas con librerías de <i>Javascript</i>.",
       "p-5": "Crear sitios minimalistas y atractivos para todo propósito.",
-      "p-6": "Estudiar y profundizar sobre <i>node</i>",
-      "p-7": "Estudiar y aplicar proyectos con <i>node</i> para crear aplicaciones web o <i>API</i>.",
+      "p-6": "Estudiar y profundizar sobre <i>Node.js</i>",
+      "p-7": "Estudiar y aplicar proyectos con <i>Node.js</i> para crear aplicaciones web o <i>API</i>.",
       "p-8": "Realizar proyectos con <i>Headless CSM.</i>",
-      "p-9": "Mejorar el diseño del portafolio a medida que obtenga más conocimientos.",
+      "p-9": "Mejorar el diseño del portafolio. Pronto con un nuevo diseño...",
       "p-10": "Incorporar estos conocimientos con la música y la ciencia."
     },
     "letter": {
@@ -93,7 +93,7 @@
     },
     "description": {
       "tech": "React/TypeScript",
-      "job": "Web programmer",
+      "job": "Front-end web programmer",
       "other": "Guitarist and Chemistry teacher"
     },
     "greet": "Hi, I'm Marcos.",
@@ -153,12 +153,12 @@
       "p-1": "Introduce enhances in <i>UX/UI</i> to future projects.",
       "p-2": "Learn more about Data Structures and Algorithms.",
       "p-3": "Learn more about reactive programming and patterns with React and TypeScript.",
-      "p-4": "Create complex animations in <i>Javascript</i>.",
+      "p-4": "Create complex animations with <i>JavaScript</i>.",
       "p-5": "Develop more websites and applications.",
       "p-6": "Deep dive more into <i>Node.js</i> and back-end",
-      "p-7": "Create projects using <i>Node.js</i> to create more applications and <i>API's</i>.",
+      "p-7": "Create projects using <i>Node.js</i>, applications and <i>API's</i>.",
       "p-8": "Create projects using <i>Headless CSM.</i>",
-      "p-9": "Improve the design of my portfolio. Coming soon with...",
+      "p-9": "Improve the design of my portfolio. Coming soon with a new version...",
       "p-10": "Introduce my knowledge with music, science and programming."
     },
     "letter": {
