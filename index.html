@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" translate="no">
   <head>
     <meta charset="UTF-8" />
     <title>Portafolio CV - @bymarcant</title>
@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="css/style.css" />
     <meta
       name="description"
-      content="Hola bienvenid@ a mi Portafolio, soy Marcos, Desarrollador Web Junior"
+      content="Hola bienvenid@ a mi Portafolio, soy Marcos, Programador Front-end React/TypeScript"
     />
     <link
       rel="canonical"
@@ -28,7 +28,7 @@
       href="https://marcant.github.io/bymarcant-portfolio-cv/img/favicon.png"
     />
 
-    <meta name="theme-color" content="#FFF8E7" />
+    <!-- <meta name="theme-color" content="#FFF8E7" /> -->
     <meta name="twitter:card" content="summary" />
     <meta property="og:type" content="website" />
     <meta
@@ -39,7 +39,7 @@
     <meta
       property="og:description"
       name="twitter:description"
-      content="Hola bienvenid@ a mi Portafolio, soy Marcos, Desarrollador Web Junior"
+      content="Hola bienvenid@ a mi Portafolio, soy Marcos, Programador Front-end React/TypeScript"
     />
     <meta
       property="og:image"
@@ -52,37 +52,67 @@
       content=" https://marcant.github.io/bymarcant-portfolio-cv/"
     />
     <script defer src="scripts/scripts.js"></script>
+    <script defer src="scripts/lang.js"></script>
   </head>
   <body>
     <div class="grid-content" id="grid-content">
       <div class="grid-item info">
-        <div
-          style="
-            display: flex;
-            justify-content: flex-start;
-            align-items: center;
-          "
-        >
-          <a href="#" class="logo"
-            ><span style="color: var(--blue)">by</span>marcant</a
-          >
-          <small style="padding-top: 0.75rem"><i>v - 0.3 / 2024 </i></small>
+        <div class="title-container">
+          <div class="title">
+            <a href="#" class="logo"><span>by</span>marcant</a>
+            <small id="version-date"><i>v - 0.3.1 / 2024</i></small>
+          </div>
+
+          <div class="buttons-lang-container">
+            <button
+              type="button"
+              id="en-button"
+              class="button-lang active-lang"
+              title="English"
+              tabindex="0"
+            >
+              En
+            </button>
+
+            <button
+              type="button"
+              id="es-button"
+              class="button-lang"
+              title="Español"
+              tabindex="0"
+            >
+              Es
+            </button>
+
+            <div class="lang-icon">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                stroke="currentColor"
+                fill="none"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                viewBox="0 0 24 24"
+                data-icon="SvgGlobe"
+                aria-hidden="true"
+              >
+                <path
+                  d="M12 2.991A9.009 9.009 0 112.991 12 9.01 9.01 0 0112 2.991zM2.991 12h18.018M12 2.991A13.783 13.783 0 0115.6 12a13.783 13.783 0 01-3.6 9.009A13.783 13.783 0 018.4 12 13.783 13.783 0 0112 2.991z"
+                ></path>
+              </svg>
+            </div>
+          </div>
         </div>
 
         <br />
-        <div
-          style="
-            display: flex;
-            justify-content: flex-start;
-            align-items: center;
-            margin-left: 1rem;
-            gap: 1.5em;
-          "
-        >
+        <div class="links-container">
           <a
             href="https://github.com/MarcAnt"
             title="@bymarcant"
             target="_blank"
+            rel="noopener noreferrer"
           >
             <svg
               aria-hidden="true"
@@ -106,6 +136,7 @@
             href="https://www.linkedin.com/in/marcos-esqueda/"
             title="@bymarcant"
             target="_blank"
+            rel="noopener noreferrer"
           >
             <svg
               aria-hidden="true"
@@ -127,16 +158,19 @@
           </a>
         </div>
 
-        <h1>Hola, Soy Marcos.</h1>
-        <h2>
-          Desarrollador y diseñador <i>Web Jr. Freelance.</i> <br />
-          Guitarrista y Prof. de Química
-        </h2>
+        <h1 data-lang="greet">Hi, I'm Marcos.</h1>
+        <div class="more-info">
+          <strong data-lang="description.job">Web programer</strong>
+          <strong>
+            <i data-lang="description.tech">React/TypeScript</i>
+          </strong>
+          <p data-lang="description.other">Guitarist and Chemistry teacher</p>
+        </div>
       </div>
 
       <div class="grid-item portfolio" id="portfolio">
         <div class="section-name">
-          <h2>Portafolio</h2>
+          <h2 data-lang="title.portfolio">Portfolio</h2>
         </div>
 
         <div class="section-letters">
@@ -145,13 +179,13 @@
         </div>
 
         <div class="section-info">
-          <p>Proyectos: 8</p>
+          <p data-lang="projects-count">Projects: 8</p>
         </div>
       </div>
 
       <div class="grid-item contact" id="contact">
         <div class="section-name">
-          <h2>Contacto</h2>
+          <h2 data-lang="title.contact">Contact</h2>
         </div>
 
         <div class="section-letters">
@@ -166,22 +200,23 @@
 
       <div class="grid-item skills" id="skills">
         <div class="section-name">
-          <h2>Habilidades</h2>
+          <h2 data-lang="title.skills">Skills</h2>
         </div>
 
         <div class="section-letters">
-          <p>H</p>
-          <p>d</p>
+          <p data-lang="letter.skill-1">S</p>
+          <p data-lang="letter.skill-2">k</p>
         </div>
       </div>
+
       <div class="grid-item goals" id="goals">
         <div class="section-name">
-          <h2>Metas</h2>
+          <h2 data-lang="title.goals">Goals</h2>
         </div>
 
         <div class="section-letters">
-          <p>M</p>
-          <p>t</p>
+          <p data-lang="letter.goal-1">G</p>
+          <p data-lang="letter.goal-2">l</p>
         </div>
       </div>
     </div>
@@ -192,10 +227,15 @@
         <div class="header-modal">
           <div class="header-content-modal">
             <div class="modal-name">
-              <h3 style="font-style: italic" id="name-modal">Portafolio</h3>
+              <h3 id="name-modal" data-lang="title.portfolio">Portafolio</h3>
             </div>
 
-            <button class="modal-close" id="modal-close">
+            <button
+              type="button"
+              class="modal-close"
+              id="modal-close"
+              title="Close"
+            >
               <svg
                 width="60"
                 height="60"
@@ -226,25 +266,31 @@
               target="_blank"
               class="proyect-name"
               rel="noopener noreferrer"
+              data-lang="portfolio.template-title"
               >Template Dashboard
             </a>
 
-            <p class="proyect-abstract">
+            <p
+              class="proyect-abstract"
+              data-lang="portfolio.template-description"
+            >
               Template Dashboard de una vista para una clínica donde se
               visualizan los horarios de un médico
             </p>
 
             <ul class="technologies">
-              <li><i>ReactJS</i></li>
-              <li><i>CSS: Styled-Components, Chakra UI, Material UI</i></li>
-              <li><i>TypeScript</i></li>
+              <li data-lang="tech.react">React.js</li>
+              <li data-lang="tech.typescript">TypeScript</li>
+              <li data-lang="tech.styled"><i>Styled-Components</i></li>
+              <li data-lang="tech.chakra"><i>Chakra UI</i></li>
+              <li data-lang="tech.material"><i>Material UI</i></li>
             </ul>
           </div>
 
           <div class="img-portfolio">
             <img
               src="img/periodic-table.png"
-              alt="Tabla Periodica con React y Styled-Components"
+              alt="Tabla Periódica con React y Styled-Components"
             />
           </div>
 
@@ -254,18 +300,22 @@
               target="_blank"
               class="proyect-name"
               rel="noopener noreferrer"
+              data-lang="portfolio.periodic-table-title"
               >Tabla Periódica</a
             >
 
-            <p class="proyect-abstract">
-              Tabla Periódica realizada con ReactJS, TypeScript y
+            <p
+              class="proyect-abstract"
+              data-lang="portfolio.periodic-table-description"
+            >
+              Tabla Periódica realizada con React.js, TypeScript y
               Styled-Components
             </p>
 
             <ul class="technologies">
-              <li><i>ReactJS</i></li>
-              <li><i>CSS: Styled-Components</i></li>
-              <li><i>TypeScript</i></li>
+              <li data-lang="tech.react"><i>React.js</i></li>
+              <li data-lang="tech.styled"><i>CSS: Styled-Components</i></li>
+              <li data-lang="tech.typescript"><i>TypeScript</i></li>
             </ul>
           </div>
 
@@ -279,17 +329,22 @@
               target="_blank"
               class="proyect-name"
               rel="noopener noreferrer"
+              data-lang="portfolio.faripets-title"
               >FARIPETS</a
             >
 
-            <p class="proyect-abstract">
+            <p
+              class="proyect-abstract"
+              data-lang="portfolio.faripets-description"
+            >
               Blog para el cuidado de Mascotas. Logotipo realizado por mi.
             </p>
 
             <ul class="technologies">
-              <li><i>HTML</i></li>
-              <li><i>CSS: Tailwind CSS</i></li>
-              <li><i>Javascript: Vanilla JS, anime.js</i></li>
+              <li data-lang="tech.html"><i>HTML</i></li>
+              <li data-lang="tech.tailwind"><i>CSS: Tailwind CSS</i></li>
+              <li data-lang="tech.javascript"><i>Javascript</i></li>
+              <li data-lang="tech.animejs"><i>anime.js</i></li>
             </ul>
           </div>
 
@@ -303,17 +358,21 @@
               target="_blank"
               class="proyect-name"
               rel="noopener noreferrer"
+              data-lang="portfolio.metronome-title"
               >Metrónomo</a
             >
 
-            <p class="proyect-abstract">
+            <p
+              class="proyect-abstract"
+              data-lang="portfolio.metronome-description"
+            >
               Metrónomo básico realizado con Javascript.
             </p>
 
             <ul class="technologies">
-              <li><i>HTML</i></li>
-              <li><i>CSS</i></li>
-              <li><i>Javascript</i></li>
+              <li data-lang="tech.html"><i>HTML</i></li>
+              <li data-lang="tech.css"><i>CSS</i></li>
+              <li data-lang="tech.javascript"><i>Javascript</i></li>
             </ul>
           </div>
 
@@ -330,17 +389,22 @@
               target="_blank"
               class="proyect-name"
               rel="noopener noreferrer"
+              data-lang="portfolio.chessboard-title"
               >Chess960</a
             >
 
-            <p class="proyect-abstract">
+            <p
+              class="proyect-abstract"
+              data-lang="portfolio.chessboard-description"
+            >
               Creador de posiciones random para ajedrez de Fisher.
             </p>
 
             <ul class="technologies">
-              <li><i>HTML</i></li>
-              <li><i>CSS</i></li>
-              <li><i>Javascript: Vanilla JS, chessboard.js</i></li>
+              <li data-lang="tech.html"><i>HTML</i></li>
+              <li data-lang="tech.css"><i>CSS</i></li>
+              <li data-lang="tech.javascript"><i>Javascript</i></li>
+              <li data-lang="tech.chessboard"><i>chessboard.js</i></li>
             </ul>
           </div>
 
@@ -357,16 +421,23 @@
               target="_blank"
               class="proyect-name"
               rel="noopener noreferrer"
+              data-lang="portfolio.groupgg-title"
               >GrupoGG</a
             >
 
-            <p class="proyect-abstract">Sitio web para la empresa GRUPOGG</p>
+            <p
+              class="proyect-abstract"
+              data-lang="portfolio.groupgg-description"
+            >
+              Sitio web para la empresa GRUPOGG
+            </p>
 
             <ul class="technologies">
-              <li><i>HTML</i></li>
-              <li><i>CSS: Bootstrap CSS</i></li>
-              <li><i>Javascript: Vanilla JS, GSAP</i></li>
-              <li><i>php</i></li>
+              <li data-lang="tech.html"><i>HTML</i></li>
+              <li data-lang="tech.bootstrap"><i>CSS: Bootstrap CSS</i></li>
+              <li data-lang="tech.javascript"><i>Javascript</i></li>
+              <li data-lang="tech.gsap"><i>GSAP</i></li>
+              <li data-lang="tech.php"><i>php</i></li>
             </ul>
           </div>
 
@@ -380,17 +451,23 @@
               target="_blank"
               class="proyect-name"
               rel="noopener noreferrer"
+              data-lang="portfolio.partexhd-title"
               >PartexHD</a
             >
 
-            <p class="proyect-abstract">
-              Partexhd template site. (Demostrativo).
+            <p
+              class="proyect-abstract"
+              data-lang="portfolio.partexhd-description"
+            >
+              PartexHD template site. (Demostrativo).
             </p>
 
             <ul class="technologies">
-              <li><i>HTML</i></li>
-              <li><i>CSS: Bootstrap CSS (Tema personalizado) </i></li>
-              <li><i>Javascript: Vanilla JS, anime.js, glide.js</i></li>
+              <li data-lang="tech.html"><i>HTML</i></li>
+              <li data-lang="tech.bootstrap"><i>Bootstrap CSS</i></li>
+              <li data-lang="tech.javascript"><i>Javascript</i></li>
+              <li data-lang="tech.animejs"><i>anime.js</i></li>
+              <li data-lang="tech.glide"><i>glide.js</i></li>
             </ul>
           </div>
 
@@ -404,17 +481,24 @@
               target="_blank"
               class="proyect-name"
               rel="noopener noreferrer"
+              data-lang="portfolio.planets-title"
               >The Planets</a
             >
 
-            <p class="proyect-abstract">The planets site. (Demostrativo).</p>
+            <p
+              class="proyect-abstract"
+              data-lang="portfolio.planets-description"
+            >
+              The planets site. (Demostrativo).
+            </p>
 
             <ul class="technologies">
-              <li><i>HTML</i></li>
-              <li>
-                <i>CSS <span>(No Responsivo. Solo ver en escritorio)</span></i>
+              <li data-lang="tech.html"><i>HTML</i></li>
+              <li data-lang="tech.css">
+                <i>CSS</i>
               </li>
-              <li><i>Javascript: Vanilla JS, GSAP</i></li>
+              <li data-lang="tech.javascript"><i>Javascript</i></li>
+              <li data-lang="tech.gsap"><i>GSAP</i></li>
             </ul>
           </div>
         </div>
@@ -428,12 +512,17 @@
         <div class="header-modal-contact">
           <div class="header-content-modal-contact">
             <div class="modal-name-contact">
-              <h3 style="font-style: italic" id="modal-name-contact">
+              <h3 id="modal-name-contact" data-lang="title.contact">
                 Contacto
               </h3>
             </div>
 
-            <button class="close-contact" id="modal-close-contact">
+            <button
+              type="button"
+              class="close-contact"
+              id="modal-close-contact"
+              title="Close"
+            >
               <svg
                 width="60"
                 height="60"
@@ -452,7 +541,7 @@
 
         <div class="body-modal-contact" id="body-modal-contact">
           <form class="contact-form">
-            <label for="nombre">Nombre</label>
+            <label for="nombre" data-lang="contact.name">Name</label>
             <input
               type="text"
               name="name"
@@ -463,7 +552,7 @@
               required
             />
 
-            <label for="email">Correo</label>
+            <label for="email" data-lang="contact.email">Email</label>
             <input
               type="email"
               name="email"
@@ -473,7 +562,9 @@
               required
             />
 
-            <label for="mensaje">Deje su mensaje</label>
+            <label for="mensaje" data-lang="contact.message"
+              >Leave your message</label
+            >
             <textarea
               name="comments"
               id="mensaje"
@@ -481,14 +572,14 @@
               required
             ></textarea>
 
-            <button type="submit">Enviar</button>
+            <button type="submit" data-lang="contact.send">Enviar</button>
           </form>
         </div>
       </div>
 
       <div class="modal-confirm">
         <div class="box-message">
-          <p>¡Mensaje enviado!</p>
+          <p data-lang="contact.confirm">Message sent!</p>
         </div>
       </div>
     </div>
@@ -500,12 +591,17 @@
         <div class="header-modal-skills">
           <div class="header-content-modal-skills">
             <div class="modal-name-skills">
-              <h3 style="font-style: italic" id="modal-name-skills">
+              <h3 id="modal-name-skills" data-lang="title.skills">
                 Habilidades
               </h3>
             </div>
 
-            <button class="modal-close-skills" id="modal-close-skills">
+            <button
+              type="button"
+              class="modal-close-skills"
+              id="modal-close-skills"
+              title="Close"
+            >
               <svg
                 width="60"
                 height="60"
@@ -524,30 +620,33 @@
 
         <div class="body-modal-skills" id="body-modal-skills">
           <h4>Frontend:</h4>
-          <p>
+          <p data-lang="skills.p1">
             Manejo de la sintaxis básica de <i>HTML, basic SEO, API'S </i> y
             plantillas de <i>HTML 5</i>
           </p>
-          <p>
+          <p data-lang="skills.p2">
             Vanilla Javascript, TypeScript (sintaxis básica), manejo del DOM,
             POO, asíncrono y plugins como
             <i>Framer Motion, GSAP, anime.js, chart.js</i>,entre otros según el
             tipo o necesidades de proyecto.
           </p>
-          <p>
+          <p data-lang="skills.p3">
             CSS, uso de variables y sintaxis básica para todos los navegadores,
-            responsive web desing y librerias o frameworks como
+            responsive web design y librerías o frameworks como
             <i>Sass, Bootstrap, Tailwind CSS, Styled-Components y Chakra UI</i>.
           </p>
-          <p>
-            Manejo de de herrmaientas como Figma, Adobe Illustrator y Adobe
-            Photoshop
+          <p data-lang="skills.p4">
+            Manejo de de herramientas como Figma, Adobe Illustrator y Adobe
+            Photoshop.
           </p>
 
           <h4>Backend:</h4>
-          <p>
-            Conectar con <i>API'S</i> externas por medio de fetch (y librerias
-            para realizar peticiones http)
+          <p data-lang="skills.p5">
+            Conectar con <i>API'S</i> externas por medio de fetch y librerías
+            para realizar peticiones asíncronas como React Query.
+          </p>
+          <p data-lang="skills.p6">
+            Conocimientos básicos de Node.js para crear API REST.
           </p>
         </div>
       </div>
@@ -560,10 +659,15 @@
         <div class="header-modal-goals">
           <div class="header-content-modal-goals">
             <div class="modal-name-goals">
-              <h3 style="font-style: italic" id="modal-name-goals">Metas</h3>
+              <h3 id="modal-name-goals" data-lang="title.goals">Metas</h3>
             </div>
 
-            <button class="modal-close-goals" id="modal-close-goals">
+            <button
+              type="button"
+              class="modal-close-goals"
+              id="modal-close-goals"
+              title="Close"
+            >
               <svg
                 width="60"
                 height="60"
@@ -583,43 +687,48 @@
         <div class="body-modal-goals" id="body-modal-goals">
           <h4>Frontend:</h4>
           <ul>
-            <li>
+            <li data-lang="goals.p-1">
               Incorporar mejoras en cuanto <i>UX/UI</i> a futuros proyectos.
             </li>
-            <li>Estudiar sobre estructuras de datos y algoritmos.</li>
-            <li>
+            <li data-lang="goals.p-2">
+              Estudiar sobre estructuras de datos y algoritmos.
+            </li>
+            <li data-lang="goals.p-3">
               Aprender sobre programación reactiva con <i>Javascript</i> y
               realizar más proyectos con <i>React y TypeScript</i>.
             </li>
-            <li>
+            <li data-lang="goals.p-4">
               Crear animaciones más complejas con librerías de
               <i>Javascript</i>.
             </li>
-            <li>Crear sitios minimalistas y atractivos para todo propósito.</li>
-            <li>
-              Desarrollador aplicaciones para blockchain, en Solidity y Smart
-              Contracts con la red de Ethereum
+            <li data-lang="goals.p-5">
+              Crear sitios minimalistas y atractivos para todo propósito.
             </li>
           </ul>
 
           <h4>Backend:</h4>
           <ul>
-            <li>Estudiar y profundizar sobre <i>node</i></li>
-            <li>
+            <li data-lang="goals.p-6">
+              Estudiar y profundizar sobre <i>node</i>
+            </li>
+            <li data-lang="goals.p-7">
               Estudiar y aplicar proyectos con <i>node</i> para crear
               aplicaciones web o <i>API</i>.
             </li>
-            <li>Realizar proyectos con <i>Headless CSM.</i></li>
+            <li data-lang="goals.p-8">
+              Realizar proyectos con <i>Headless CSM.</i>
+            </li>
           </ul>
 
           <h4>Extras:</h4>
           <ul>
-            <li>
+            <li data-lang="goals.p-9">
               Mejorar el diseño del portafolio a medida que obtenga más
               conocimientos.
             </li>
-            <li>Incorporar estos conocimientos con la música y la ciencia.</li>
-            <li>Crear un blog.</li>
+            <li data-lang="goals.p-10">
+              Incorporar estos conocimientos con la música y la ciencia.
+            </li>
           </ul>
         </div>
       </div>

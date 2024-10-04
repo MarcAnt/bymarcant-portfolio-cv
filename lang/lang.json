@@ -1,0 +1,171 @@
+{
+  "es": {
+    "title": {
+      "portfolio": "Portafolio",
+      "contact": "Contacto",
+      "skills": "Habilidades",
+      "goals": "Metas"
+    },
+    "greet": "Hola, Soy Marcos.",
+    "description": {
+      "tech": "React/TypeScript",
+      "job": "Programador web",
+      "other": "Guitarrista y Prof. de Química"
+    },
+    "projects-count": "Proyectos: 8",
+    "contact": {
+      "name": "Nombre",
+      "email": "Correo",
+      "message": "Deje su mensaje",
+      "send": "Enviar",
+      "confirm": "¡Mensaje enviado!"
+    },
+    "porfolio": {
+      "template-title": "Template Dashboard",
+      "template-description": "Template Dashboard de una vista para una clínica donde se visualizan los horarios de un médico",
+      "periodic-table-title": "Tabla Periódica",
+      "periodic-table-description": "Tabla Periódica realizada con React.js, TypeScript y Styled-Components",
+      "faripets-title": "FARIPETS",
+      "faripets-description": "Blog para el cuidado de Mascotas. Logotipo realizado por mi.",
+      "metronome-title": "Metrónomo",
+      "metronome-description": "Metrónomo básico realizado con Javascript.",
+      "chessboard-title": "Chess960",
+      "chessboard-description": "Creador de posiciones random para ajedrez de Fisher.",
+      "groupgg-title": "GrupoGG",
+      "groupgg-description": "Sitio web para la empresa GRUPOGG.",
+      "partexhd-title": "PartexHD",
+      "partexhd-description": "PartexHD template site. (Demostrativo).",
+      "planets-title": "The Planets",
+      "planets-description": "The planets site. (Demostrativo)."
+    },
+    "tech": {
+      "styled": "Styled-Components",
+      "chakra": "Chakra UI",
+      "typescript": "TypeScript",
+      "javascript": "JavaScript",
+      "react": "React.js",
+      "material": "Material UI",
+      "tailwind": "Tailwind CSS",
+      "animejs": "anime.js",
+      "html": "HTML",
+      "css": "CSS",
+      "sass": "Scss",
+      "php": "php",
+      "gsap": "GSAP",
+      "bootstrap": "Bootstrap CSS",
+      "chessboard": "chessboard.js",
+      "glide": "glide.js"
+    },
+    "skills": {
+      "p1": "Manejo de la sintaxis básica de <i>HTML, basic SEO, API'S </i> y plantillas de <i>HTML 5</i>",
+      "p2": "JavaScript, TypeScript, manejo del DOM,POO, asíncrono y plugins como <i>Framer Motion, GSAP, anime.js, chart.js</i>,entre otros según el tipo o necesidades de proyecto.",
+      "p3": "CSS, uso de variables y sintaxis básica para todos los navegadores, responsive web design y librerías o frameworks como <i>Sass, Bootstrap, Tailwind CSS, Styled-Components y Chakra UI",
+      "p4": "Manejo de de herramientas como Figma, Adobe Illustrator y Adobe Photoshop",
+      "p5": "Conectar con <i>API'S</i> externas por medio de fetch y librerías para realizar peticiones asíncronas como React Query.",
+      "p6": "Conocimientos básicos de Node.js para crear API REST."
+    },
+    "gaols": {
+      "p-1": "Incorporar mejoras en cuanto <i>UX/UI</i> a futuros proyectos.",
+      "p-2": "Estudiar sobre estructuras de datos y algoritmos.",
+      "p-3": "Aprender sobre programación reactiva con <i>Javascript</i> y realizar más proyectos con <i>React y TypeScript</i>.",
+      "p-4": "Crear animaciones más complejas con librerías de <i>Javascript</i>.",
+      "p-5": "Crear sitios minimalistas y atractivos para todo propósito.",
+      "p-6": "Estudiar y profundizar sobre <i>node</i>",
+      "p-7": "Estudiar y aplicar proyectos con <i>node</i> para crear aplicaciones web o <i>API</i>.",
+      "p-8": "Realizar proyectos con <i>Headless CSM.</i>",
+      "p-9": "Mejorar el diseño del portafolio a medida que obtenga más conocimientos.",
+      "p-10": "Incorporar estos conocimientos con la música y la ciencia."
+    },
+    "letter": {
+      "skill-1": "H",
+      "skill-2": "d",
+      "goal-1": "M",
+      "goal-2": "t"
+    }
+  },
+
+  "en": {
+    "title": {
+      "portfolio": "Portfolio",
+      "contact": "Contact",
+      "skills": "Skills",
+      "goals": "Goals"
+    },
+    "description": {
+      "tech": "React/TypeScript",
+      "job": "Web programmer",
+      "other": "Guitarist and Chemistry teacher"
+    },
+    "greet": "Hi, I'm Marcos.",
+    "projects-count": "Projects: 8",
+    "contact": {
+      "name": "Name",
+      "email": "Email",
+      "message": "Leave your message",
+      "send": "Send",
+      "confirm": "Message sent!"
+    },
+    "porfolio": {
+      "template-title": "Template Dashboard",
+      "template-description": "Template Dashboard. A view of a clinic to visualize doctor schedule.",
+      "periodic-table-title": "Periodic Table",
+      "periodic-table-description": "Periodic Table made with React.js, TypeScript and Styled-Components",
+      "faripets-title": "FARIPETS",
+      "faripets-description": "A Pet care blog.",
+      "metronome-title": "Metronome",
+      "metronome-description": "A basic metronome made with JavaScript.",
+      "chessboard-title": "Chess960",
+      "chessboard-description": "Create random chess position to Chess960",
+      "groupgg-title": "GrupoGG",
+      "groupgg-description": "GRUPOGG Website company ",
+      "partexhd-title": "PartexHD",
+      "partexhd-description": "PartexHD template site.",
+      "planets-title": "The Planets",
+      "planets-description": "The planets site."
+    },
+    "tech": {
+      "styled": "Styled-Components",
+      "chakra": "Chakra UI",
+      "typescript": "TypeScript",
+      "javascript": "JavaScript",
+      "react": "React.js",
+      "material": "Material UI",
+      "tailwind": "Tailwind CSS",
+      "animejs": "anime.js",
+      "html": "HTML",
+      "css": "CSS",
+      "sass": "Scss",
+      "php": "php",
+      "gsap": "GSAP",
+      "bootstrap": "Bootstrap CSS",
+      "chessboard": "chessboard.js",
+      "glide": "glide.js"
+    },
+    "skills": {
+      "p1": "Knowledge of <i>HTML 5, basic SEO and browser API'S </i>.",
+      "p2": "JavaScript, TypeScript, DOM, POO, asynchronous programming, plugins, libraries like <i>Framer Motion, GSAP, anime.js, chart.js</i>.",
+      "p3": "CSS, responsive web design, libraries and frameworks like <i>Sass, Bootstrap, Tailwind CSS, Styled-Components and other</i>.",
+      "p4": "Basic knowledge of design tools like Figma, Adobe Illustrator y Adobe Photoshop.",
+      "p5": "Use of and Fetch API and libraries like React Query.",
+      "p6": "Basic knowledge of Node.js to create REST API."
+    },
+    "gaols": {
+      "p-1": "Introduce enhances in <i>UX/UI</i> to future projects.",
+      "p-2": "Learn more about Data Structures and Algorithms.",
+      "p-3": "Learn more about reactive programming and patterns with React and TypeScript.",
+      "p-4": "Create complex animations in <i>Javascript</i>.",
+      "p-5": "Develop more websites and applications.",
+      "p-6": "Deep dive more into <i>Node.js</i> and back-end",
+      "p-7": "Create projects using <i>Node.js</i> to create more applications and <i>API's</i>.",
+      "p-8": "Create projects using <i>Headless CSM.</i>",
+      "p-9": "Improve the design of my portfolio. Coming soon with...",
+      "p-10": "Introduce my knowledge with music, science and programming."
+    },
+    "letter": {
+      "skill-1": "S",
+      "skill-2": "k",
+      "goal-1": "G",
+      "goal-2": "l"
+    }
+  }
+}
