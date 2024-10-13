@@ -81,7 +81,8 @@
       "skill-2": "d",
       "goal-1": "M",
       "goal-2": "t"
-    }
+    },
+    "resume": "Download Resume:"
   },
 
   "en": {
@@ -166,6 +167,7 @@
       "skill-2": "k",
       "goal-1": "G",
       "goal-2": "l"
-    }
+    },
+    "resume": "Descargar Curriculum:"
   }
 }
