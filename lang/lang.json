@@ -82,7 +82,7 @@
       "goal-1": "M",
       "goal-2": "t"
     },
-    "resume": "Download Resume:"
+    "resume": "Descargar Curriculum:"
   },
 
   "en": {
@@ -168,6 +168,6 @@
       "goal-1": "G",
       "goal-2": "l"
     },
-    "resume": "Descargar Curriculum:"
+    "resume": "Download Resume:"
   }
 }
