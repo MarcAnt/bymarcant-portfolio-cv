@@ -12,7 +12,7 @@
       "job": "Front-end programador web",
       "other": "Guitarrista y Prof. de Química"
     },
-    "projects-count": "Proyectos: 8",
+    "projects-count": "Proyectos: 10",
     "contact": {
       "name": "Nombre",
       "email": "Correo",
@@ -36,7 +36,13 @@
       "partexhd-title": "PartexHD",
       "partexhd-description": "PartexHD template site. (Demostrativo).",
       "planets-title": "The Planets",
-      "planets-description": "The planets site. (Demostrativo)."
+      "planets-description": "The planets site. (Demostrativo).",
+      "getonboard-title": "Getonboard Clone website",
+      "getonboard-description": "Getonboard website clone using the GetOnboard API's.",
+      "evil-title": "Generador de Evil meme",
+      "evil-description": "Simple generador de Evil meme que permite exportar como imagen.",
+      "ehtt-title": "Employee’s Happiness Tracking Tool",
+      "ehtt-description": "Sigue el nivel felicidad de personas relacionada a su compañía."
     },
     "tech": {
       "styled": "Styled-Components",
@@ -54,7 +60,8 @@
       "gsap": "GSAP",
       "bootstrap": "Bootstrap CSS",
       "chessboard": "chessboard.js",
-      "glide": "glide.js"
+      "glide": "glide.js",
+      "query": "React Query"
     },
     "skills": {
       "p1": "Manejo de la sintaxis básica de <i>HTML, basic SEO, API'S </i> y plantillas de <i>HTML 5</i>",
@@ -98,7 +105,7 @@
       "other": "Guitarist and Chemistry teacher"
     },
     "greet": "Hi, I'm Marcos.",
-    "projects-count": "Projects: 8",
+    "projects-count": "Projects: 10",
     "contact": {
       "name": "Name",
       "email": "Email",
@@ -122,7 +129,13 @@
       "partexhd-title": "PartexHD",
       "partexhd-description": "PartexHD template site.",
       "planets-title": "The Planets",
-      "planets-description": "The planets site."
+      "planets-description": "The planets site.",
+      "getonboard-title": "Getonboard Clone website",
+      "getonboard-description": "Getonboard website clone using the GetOnboard API's.",
+      "evil-title": "Evil meme generator",
+      "evil-description": "A Simple Evil meme generator that allows to export your meme as image.",
+      "ehtt-title": "Employee’s Happiness Tracking Tool",
+      "ehtt-description": "Track the happiness level of the people related to their company."
     },
     "tech": {
       "styled": "Styled-Components",
@@ -140,7 +153,8 @@
       "gsap": "GSAP",
       "bootstrap": "Bootstrap CSS",
       "chessboard": "chessboard.js",
-      "glide": "glide.js"
+      "glide": "glide.js",
+      "query": "React Query"
     },
     "skills": {
       "p1": "Knowledge of <i>HTML 5, basic SEO and browser API'S </i>.",

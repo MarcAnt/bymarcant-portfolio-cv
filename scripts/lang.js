@@ -29,7 +29,9 @@
   }
 
   async function fetchLang(lang = globalLang) {
-    let urlFile = `https://raw.githubusercontent.com/MarcAnt/bymarcant-portfolio-cv/refs/heads/main/lang/lang.json`;
+    let urlFile =
+      `https://raw.githubusercontent.com/MarcAnt/bymarcant-portfolio-cv/refs/heads/main/lang/lang.json` ||
+      "../lang/lang.json";
     try {
       const getLang = await fetch(urlFile, {
         headers: {
@@ -112,27 +114,22 @@
     );
 
     sections.forEach((element) => {
-      d.querySelector(`#en-button-${element}`).addEventListener(
-        "click",
-        (e) => {
-          d.querySelectorAll(`.button-lang`).forEach((element) => {
-            console.log();
+      d.querySelector(`#en-button-${element}`).addEventListener("click", () => {
+        d.querySelectorAll(`.button-lang`).forEach((element) => {
+          const dataLangText = element.getAttribute("data-text-lang");
 
-            const dataLangText = element.getAttribute("data-text-lang");
-
-            if (
-              element.textContent.trim().toLowerCase() === "en" &&
-              dataLangText === "en"
-            ) {
-              element.classList.add("active-lang");
-            } else {
-              element.classList.remove("active-lang");
-            }
-          });
-          fetchLang("en");
-          globalLang = "en";
-        }
-      );
+          if (
+            element.textContent.trim().toLowerCase() === "en" &&
+            dataLangText === "en"
+          ) {
+            element.classList.add("active-lang");
+          } else {
+            element.classList.remove("active-lang");
+          }
+        });
+        fetchLang("en");
+        globalLang = "en";
+      });
 
       d.querySelector(`#es-button-${element}`).addEventListener(
         "click",
